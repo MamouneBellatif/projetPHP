@@ -12,12 +12,12 @@
         // L'objet local PDO de la base de donnée
         private $db;
         // Le type, le chemin et le nom de la base de donnée
-        private $database = 'sqlite:../data/db/bricomachin.db';
+        private $database = 'sqlite:../data/database/mouche.db';
 
         // Constructeur chargé d'ouvrir la BD
         function __construct() {
           try {
-            $this->db = new PDO('sqlite:../data/db/bricomachin.db');
+            $this->db = new PDO('sqlite:../data/database/mouche.db');
           }
           catch (PDOException $e){
             die("erreur de connexion:".$e->getMessage());
