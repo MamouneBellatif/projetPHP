@@ -1,3 +1,8 @@
+.bridge {
+	background-image: -webkit-linear-gradient(top, #EBEBEB 0%, #DCDDDF 48%, #C4C5C7 99%);
+	background-image: linear-gradient(-180deg, #EBEBEB 0%, #DCDDDF 48%, #C4C5C7 99%); }
+}
+
 body {
 	font-family: "Arial";
 
@@ -30,21 +35,23 @@ header h1 {
 }
 
 nav {
-	font-weight: bolder;
-	color: #5ebcae;
+	background-color: black;
+	color: white;
+	padding: 1em;
 }
 
-nav a:visited, nav a:active , nav a:link{
-	font-weight: bolder;
-	color: #5ebcae;
-	text-decoration: none;
+nav li{
+	color: white;
+	list-style-type:none;
+	display: inline-block;
+
 }
 
 article {
-   width: 220px;
+  width: 220px;
   height: 200px;
-   display: inline-block;
-   	border: 1px solid #CCC;
+  display: inline-block;
+  border: 1px solid #CCC;
 	box-shadow: 5px 5px 2px #AAA;
 	padding-left: 5px;
 	padding-right: 5px;

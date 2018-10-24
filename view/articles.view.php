@@ -24,7 +24,7 @@
   <link rel="stylesheet" type="text/css" href="../view/design/style.css"
 </head>
 
-<body>
+<body class="bridge">
   <header>
     <h1>WarFly, ça dépote </h1>
     <p><img src="../view/design/pub.png"/></p>
