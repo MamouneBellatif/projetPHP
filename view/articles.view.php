@@ -46,7 +46,7 @@
 
     <?php
     echo '<section>';
-    $PATH = 'design/imgArticles/';
+    $PATH = '../view/design/imgArticles/';
     foreach ($articles as $key => $article) {
       $img = $PATH.$article->image;
       echo '<article>';
