@@ -1,24 +1,7 @@
 <html>
 <head>
-  <title>Bricomachin</title>
+  <title>La Moucherie</title>
   <meta charset="UTF-8"/>
-  <style media='screen'>
-    section{
-      display: flex;
-      margin: 40px;
-      flex-wrap: wrap;
-    }
-    div{
-      display: flex;
-      flex-direction: column;
-      width: 200px;
-      height: 200px;
-    }
-    div img{
-      width: 100px;
-      height: 100px;
-    }
-  </style>
   <meta http-equiv="content-type" content="text/html;" />
   <meta name="author" content="Jean-Pierre Chevallet" />
   <link rel="stylesheet" type="text/css" href="../view/design/style.css"
@@ -26,43 +9,55 @@
 
 <body class="bridge">
   <header>
-    <h1>WarFly, ça dépote </h1>
-    <p><img src="../view/design/pub.png"/></p>
+    <!-- <h1>La Moucherie</h1> -->
+    <img src="../view/design/logo-moucherieTrans.png" alt="logo-moucherieTrans">
+    <form class="formulaire" action="index.html" method="post">
+      <input class="champ" type="text" placeholder="Recherche"/>
+      <input class="bouton" type="button" value=" " />
+    </form>
+
   </header>
-  <?php
-
-
-  ///////////////////////////////////////////////////////
-  //   A COMPLETER
-  //////////////////////////////////////////////////////
-  // Si une categorie est définie
-
-  ?>
 
   <nav>
     <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="index.html">Cat1</a></li>
-      <li><a href="index.html">Cat2</a></li>
+      <li><a href="afficherArticles.ctrl.php">ACCUEIL</a></li>
+      <li><a href="afficherArticles.ctrl.php">COMBAT</a>
+        <ul>
+            <li><a href="afficherArticles.ctrl.php">Soutiens</a></li>
+            <li><a href="afficherArticles.ctrl.php">Dégats</a></li>
+            <li><a href="afficherArticles.ctrl.php">Tank</a></li>
+        </ul>
+      </li>
+      <li><a href="afficherArticles.ctrl.php">COMPAGNIE</a></li>
+      <li><a href="afficherArticles.ctrl.php">ASSISTANCE</a>
+        <ul>
+            <li><a href="afficherArticles.ctrl.php">Handicapéé</a></li>
+            <li><a href="afficherArticles.ctrl.php">Doméstique</a></li>
+        </ul>
+      </li>
+      <li><a href="afficherArticles.ctrl.php">ELEVAGE</a>
+        <ul>
+            <li><a href="afficherArticles.ctrl.php">Vers</a></li>
+            <li><a href="afficherArticles.ctrl.php">Matériel</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 
-  <?php
-  ///////////////////////////////////////////////////////
-  //  A COMPLETER
-  ///////////////////////////////////////////////
-  echo '<section>';
-  $PATH = 'http://www-info.iut2.upmf-grenoble.fr/intranet/enseignements/ProgWeb/data/bricomachin/img/';
-  foreach ($articles as $key => $article) {
-    $img = $PATH.$article->image;
-    echo '<div>';
-      echo "$article->libelle";
-      echo "<img src='$img' />";
-      echo "$article->prix";
-    echo '</div>';
-  }
-  echo '</section>';
-  ?>
+    <?php
+    echo '<section>';
+    $PATH = 'http://www-info.iut2.upmf-grenoble.fr/intranet/enseignements/ProgWeb/data/bricomachin/img/';
+    foreach ($articles as $key => $article) {
+      $img = $PATH.$article->image;
+      echo '<article>';
+        echo "<p>$article->libelle</p>";
+        echo "<p><img src='$img' /></p>";
+        echo "<p>$article->prix</p>";
+      echo '</article>';
+    }
+    echo '</section>';
+    ?>
+
   <footer>
   </p>Site fictif, issus de données réelles du Web</p>
 </footer>
