@@ -12,28 +12,32 @@
         // L'objet local PDO de la base de donnée
         private $db;
         // Le type, le chemin et le nom de la base de donnée
-        private $database = 'sqlite:../data/database/mouche.db';
+        private $database = 'sqlite:../data/db/bricomachin.db';
 
         // Constructeur chargé d'ouvrir la BD
         function __construct() {
-          try {
-            $this->db = new PDO('sqlite:../data/database/mouche.db');
-          }
-          catch (PDOException $e){
-            die("erreur de connexion:".$e->getMessage());
-          }
+            ///////////////////////////////////////////////////////
+            //  A COMPLETER
+            ///////////////////////////////////////////////
+            try {
+              $this->db = new PDO('sqlite:../data/db/bricomachin.db'); //ne marche pas
+            }
+            catch (PDOException $e){
+              die("erreur de connexion:".$e->getMessage());
+            }
         }
 
 
         // Accès à toutes les catégories
         // Retourne une table d'objets de type Categorie
         function getAllCat() : array {
-          $req = "SELECT * FROM categorie";
-          $sth = $this->db->query($req);
-          $result=array();
-          $result = $sth->fetchall(PDO::FETCH_CLASS, 'categorie');
-
-          return $result;
+            ///////////////////////////////////////////////////////
+            //  A COMPLETER
+            ///////////////////////////////////////////////////////
+            $req = "SELECT * FROM categorie";
+            $descripteur = $this->db->query($req);
+            $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Categorie');
+            return $result;
         }
 
 
@@ -45,7 +49,10 @@
             ///////////////////////////////////////////////////////
             //  A COMPLETER
             ///////////////////////////////////////////////
-            return array();
+            $req = "SELECT * FROM article LIMIT $n";
+            $descripteur = $this->db->query($req);
+            $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
+            return $result;
         }
 
         // Acces au n articles à partir de la reférence $ref
@@ -55,8 +62,10 @@
             ///////////////////////////////////////////////////////
             //  A COMPLETER
             ///////////////////////////////////////////////
-            return array();
-
+            $req = "SELECT * FROM (select * from article order by ref) WHERE ref >=$ref LIMIT $n";
+            $descripteur = $this->db->query($req);
+            $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
+            return $result;
         }
 
         // Acces à la référence qui suit la référence $ref dans l'ordre des références
@@ -64,7 +73,11 @@
             ///////////////////////////////////////////////////////
             //  A COMPLETER
             ///////////////////////////////////////////////
-            return 0;
+            $req = "SELECT * FROM (select * from article order by ref) WHERE ref > $ref LIMIT 1";
+            $descripteur = $this->db->query($req);
+            $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
+            return $result[0]->ref;
+
         }
 
         // Acces aux n articles qui précèdent de $n la référence $ref dans l'ordre des références
@@ -72,10 +85,11 @@
             ///////////////////////////////////////////////////////
             //  A COMPLETER
             ///////////////////////////////////////////////
-            return array();
+            $req = "SELECT * FROM (select * from article order by ref desc) WHERE ref <$ref LIMIT $n";
+            $descripteur = $this->db->query($req);
+            $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
+            return array_reverse($result);
         }
-
-
 
         // Acces à une catégorie
         // Retourne un objet de la classe Categorie connaissant son identifiant

@@ -3,6 +3,7 @@
 require_once('DAO.class.php');
 
 $ref = 61019994;
+//$ref = 60040351;
 // Recupère les n  articles précédents
 $list = $dao->prevN($ref,4);
 

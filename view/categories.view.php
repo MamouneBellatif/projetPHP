@@ -16,7 +16,9 @@
     /////////////////////////////////////////
     // A Completer pour afficher la liste des catégories
     /////////////////////////////////////////
-    
+    foreach ($listeCategorie as $id => $cat) {
+      echo $cat->nom." | ";
+    }
     ?>
 <footer>
 </p>Site fictif, issus de données réelles du Web</p>
