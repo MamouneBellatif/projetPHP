@@ -29,8 +29,18 @@
         </ul>
       </li>
       <li><a href="afficherArticles.ctrl.php">COMPAGNIE</a></li>
-      <li><a href="afficherArticles.ctrl.php">ASSISTANCE</a></li>
-      <li><a href="afficherArticles.ctrl.php">ELEVAGE</a></li>
+      <li><a href="afficherArticles.ctrl.php">ASSISTANCE</a>
+        <ul>
+            <li><a href="afficherArticles.ctrl.php">Handicapéé</a></li>
+            <li><a href="afficherArticles.ctrl.php">Doméstique</a></li>
+        </ul>
+      </li>
+      <li><a href="afficherArticles.ctrl.php">ELEVAGE</a>
+        <ul>
+            <li><a href="afficherArticles.ctrl.php">Vers</a></li>
+            <li><a href="afficherArticles.ctrl.php">Matériel</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 
