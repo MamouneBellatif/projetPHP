@@ -1,11 +1,14 @@
 .bridge {
 	background-image: -webkit-linear-gradient(top, #EBEBEB 0%, #DCDDDF 48%, #C4C5C7 99%);
-	background-image: linear-gradient(-180deg, #EBEBEB 0%, #DCDDDF 48%, #C4C5C7 99%); }
+	background-image: linear-gradient(-180deg, #EBEBEB 0%, #DCDDDF 48%, #C4C5C7 99%);
+	margin: 0px;
 }
 
 body {
-	font-family: "Arial";
-
+	/* font-family: "Arial"; */
+	/* font-family: "Tahoma", sans-serif; */
+	font-family: HelveticaNeueW01-Thin,HelveticaNeueW02-Thin,HelveticaNeueW10-35Thin,sans-serif;
+  /* font-family: 'Josefin Slab', serif; */
 	margin: auto;
 	border: 1px solid #CCC;
 	box-shadow: 10px 10px 5px #888888;
@@ -14,9 +17,34 @@ body {
 header {
 	font-size:large;
 	font-weight: bolder;
+	width: 100%;
 	background-color: #5ebcae;
 	margin: 0px;
+	padding: 0px;
+	display: flex;
+
 }
+
+.head,h1{
+	margin: 0px;
+	padding: 0px;
+}
+
+.formulaire{
+	display:inline-block;
+	width: 50%;
+}
+
+.formulaire .champ{
+	width: 90%;
+	height:35px;
+}
+
+.formulaire .bouton{
+	background-image: url(images/searchbar_button.png);background-repeat: no-repeat;width: 35px;height: 35px;padding: 0;
+}
+
+
 
 /**************************************************************
 * Adapte la taille de l'image dans le header
@@ -34,28 +62,54 @@ header h1 {
 	color: #fff;
 }
 
-nav {
-	background-color: black;
-	color: white;
-	padding: 1em;
-}
-
-nav li{
+nav ul{
+	background-color: grey;
 	color: white;
 	list-style-type:none;
-	display: inline-block;
+	display : flex;
+	justify-content: center;
+}
 
+
+li a{
+	display: inline-block;
+	color: white;
+	padding:20px 30px;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+li a:link {
+	text-decoration:none;
+	color: #5ebcae;
+}
+li a:visited {
+	text-decoration:none;
+	color: #5ebcae;
+}
+li a:hover {
+	text-decoration:none;
+	color: tomato;
+	Font-Weight: Bold;
+}
+li a:active {
+	text-decoration:none;
+	color: tomato;
+	Font-Weight: Bold;
+}
+
+section{
+	display : flex;
+	justify-content: space-around;
 }
 
 article {
   width: 220px;
   height: 200px;
-  display: inline-block;
-  border: 1px solid #CCC;
+  border: 1px solid black;
 	box-shadow: 5px 5px 2px #AAA;
-	padding-left: 5px;
-	padding-right: 5px;
-	vertical-align: top;
+	padding:10px;
+	margin : 5px;
+	text-align: center;
 }
 article h2 {
 		font-size:small;
@@ -63,4 +117,20 @@ article h2 {
 
 article img {
 	   width: 100px;
+}
+
+section{
+	display: flex;
+	margin: 40px;
+	flex-wrap: wrap;
+}
+div{
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+	height: 200px;
+}
+div img{
+	width: 100px;
+	height: 100px;
 }

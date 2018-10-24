@@ -4,7 +4,8 @@
 <meta charset="UTF-8"/>
 <meta http-equiv="content-type" content="text/html;" />
 <meta name="author" content="Jean-Pierre Chevallet" />
-<link rel="stylesheet" type="text/css" href="../view/design/style.css"
+<link rel="stylesheet" type="text/css" href="../view/design/style.css">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
 </head>
 
 <body>
