@@ -26,7 +26,7 @@
 
 <body>
   <header>
-    <h1>Bricomachin, le bricolage malin </h1>
+    <h1>WarFly, ça dépote </h1>
     <p><img src="../view/design/pub.png"/></p>
   </header>
   <?php
