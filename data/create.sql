@@ -1,4 +1,4 @@
-CREATE TABLE mouche (
+CREATE TABLE Articles (
 	ref INTEGER PRIMARY KEY,
 	libelle TEXT,
 	categorie INTEGER,

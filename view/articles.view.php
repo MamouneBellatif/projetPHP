@@ -18,7 +18,7 @@
 
   </header>
 
-  <nav>
+  <nav> <--à faire à partir de la db : catégorie-->
     <ul>
       <li><a href="afficherArticles.ctrl.php">ACCUEIL</a></li>
       <li><a href="afficherArticles.ctrl.php">COMBAT</a>
@@ -46,7 +46,7 @@
 
     <?php
     echo '<section>';
-    $PATH = 'http://www-info.iut2.upmf-grenoble.fr/intranet/enseignements/ProgWeb/data/bricomachin/img/';
+    $PATH = 'design/articles/';
     foreach ($articles as $key => $article) {
       $img = $PATH.$article->image;
       echo '<article>';
