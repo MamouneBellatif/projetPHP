@@ -37,10 +37,10 @@
   ///////////////////////////////////////////////
 
   // Affichage des articles
-  
+
   ?>
   <footer>
   </p>Site fictif, issus de données réelles du Web</p>
-</footer>
+</footer>bricomachin
 </body>
 </html>
