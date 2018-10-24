@@ -2,10 +2,11 @@
 // Test de la classe DAO
 require_once('DAO.class.php');
 
-// Recupère toutes les catégories
-$cat = $dao->getAllCat();
+$ref1=60040351;
+// Recupère la référence suivante de
+$ref2 = $dao->next($ref1);
 
 // Affiche 2 catégories pour le test : affiche le pere d'une catégorie
-print($cat[3]->id.' '.$cat[3]->nom.' < '.$cat[3]->pere.' '.$cat[$cat[3]->id]->nom."\n");
+print('La référence qui suit '.$ref1.' est '.$ref2."\n");
 
  ?>

@@ -2,6 +2,23 @@
 <head>
   <title>Bricomachin</title>
   <meta charset="UTF-8"/>
+  <style media='screen'>
+    section{
+      display: flex;
+      margin: 40px;
+      flex-wrap: wrap;
+    }
+    div{
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      height: 200px;
+    }
+    div img{
+      width: 100px;
+      height: 100px;
+    }
+  </style>
   <meta http-equiv="content-type" content="text/html;" />
   <meta name="author" content="Jean-Pierre Chevallet" />
   <link rel="stylesheet" type="text/css" href="../view/design/style.css"
@@ -26,21 +43,29 @@
     <!-- Bouton de retour au début de la liste -->
     <a href="?"><img src="../view/design/home.png"/></a>
     <!-- Bouton de retour à la page précédente -->
-    <a href="?ref=<?= end($prev)->ref.'&categorie='.$categorie?>">&lt; </a>
+    <a href="?ref=">&lt; </a>
     <!-- Bouton pour passer à la page suivante -->
-    <a href="?ref=<?= $nextRef.'&categorie='.$categorie?>">></a>
+    <a href="?ref=">></a>
   </nav>
 
   <?php
   ///////////////////////////////////////////////////////
   //  A COMPLETER
   ///////////////////////////////////////////////
-
-  // Affichage des articles
-
+  echo '<section>';
+  $PATH = 'http://www-info.iut2.upmf-grenoble.fr/intranet/enseignements/ProgWeb/data/bricomachin/img/';
+  foreach ($articles as $key => $article) {
+    $img = $PATH.$article->image;
+    echo '<div>';
+      echo "$article->libelle";
+      echo "<img src='$img' />";
+      echo "$article->prix";
+    echo '</div>';
+  }
+  echo '</section>';
   ?>
   <footer>
   </p>Site fictif, issus de données réelles du Web</p>
-</footer>bricomachin
+</footer>
 </body>
 </html>
