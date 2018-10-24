@@ -2,23 +2,6 @@
 <head>
   <title>Bricomachin</title>
   <meta charset="UTF-8"/>
-  <style media='screen'>
-    section{
-      display: flex;
-      margin: 40px;
-      flex-wrap: wrap;
-    }
-    div{
-      display: flex;
-      flex-direction: column;
-      width: 200px;
-      height: 200px;
-    }
-    div img{
-      width: 100px;
-      height: 100px;
-    }
-  </style>
   <meta http-equiv="content-type" content="text/html;" />
   <meta name="author" content="Jean-Pierre Chevallet" />
   <link rel="stylesheet" type="text/css" href="../view/design/style.css"
@@ -26,8 +9,9 @@
 
 <body class="bridge">
   <header>
-    <h1>WarFly, ça dépote </h1>
-    <p><img src="../view/design/pub.png"/></p>
+    <h1>La Moucherie</h1>
+    <div class="head">
+    </div>
   </header>
   <?php
 
@@ -42,8 +26,10 @@
   <nav>
     <ul>
       <li><a href="index.html">Accueil</a></li>
-      <li><a href="index.html">Cat1</a></li>
-      <li><a href="index.html">Cat2</a></li>
+      <li><a href="index.html">Combat</a></li>
+      <li><a href="index.html">Compagnie</a></li>
+      <li><a href="index.html">Assistance</a></li>
+      <li><a href="index.html">Elevage</a></li>
     </ul>
   </nav>
 
