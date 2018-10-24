@@ -3,7 +3,7 @@
   <title>La Moucherie</title>
   <meta charset="UTF-8"/>
   <meta http-equiv="content-type" content="text/html;" />
-  <meta name="author" content="Jean-Pierre Chevallet" />
+  <meta name="author" content="BELLELATIFDECHEVEUX Mamoune, VACHIER Camille, BARRERSONNOM Dorian"/>
   <link rel="stylesheet" type="text/css" href="../view/design/style.css"
 </head>
 
