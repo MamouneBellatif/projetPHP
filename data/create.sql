@@ -1,4 +1,4 @@
-CREATE TABLE Articles (
+CREATE TABLE article (
 	ref INTEGER PRIMARY KEY,
 	libelle TEXT,
 	categorie INTEGER,
