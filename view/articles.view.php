@@ -24,7 +24,7 @@
   <link rel="stylesheet" type="text/css" href="../view/design/style.css"
 </head>
 
-<body>
+<body class="bridge">
   <header>
     <h1>WarFly, ça dépote </h1>
     <p><img src="../view/design/pub.png"/></p>
@@ -40,12 +40,11 @@
   ?>
 
   <nav>
-    <!-- Bouton de retour au début de la liste -->
-    <a href="?"><img src="../view/design/home.png"/></a>
-    <!-- Bouton de retour à la page précédente -->
-    <a href="?ref=">&lt; </a>
-    <!-- Bouton pour passer à la page suivante -->
-    <a href="?ref=">></a>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html">Cat1</a></li>
+      <li><a href="index.html">Cat2</a></li>
+    </ul>
   </nav>
 
   <?php
