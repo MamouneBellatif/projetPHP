@@ -9,7 +9,8 @@
 
 <body class="bridge">
   <header>
-    <h1>La Moucherie</h1>
+    <!-- <h1>La Moucherie</h1> -->
+    <img src="../view/design/logo-moucherieTrans.png" alt="logo-moucherieTrans">
     <form class="formulaire" action="index.html" method="post">
       <input class="champ" type="text" placeholder="Recherche"/>
       <input class="bouton" type="button" value=" " />
@@ -17,7 +18,7 @@
 
   </header>
 
-  <nav id="menu">
+  <nav>
     <ul>
       <li><a href="afficherArticles.ctrl.php">ACCUEIL</a></li>
       <li><a href="afficherArticles.ctrl.php">COMBAT</a>

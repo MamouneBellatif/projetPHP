@@ -23,15 +23,7 @@ header {
 	padding: 0px;
 	display: flex;
 	position: fixed;
-
-}
-
-nav{
-	/* position: fixed;
-	top:0;
-	width: 100%;
-	padding-top : 100px;
-	 */
+justify-content: center;
 }
 
 .head,h1{
@@ -40,7 +32,8 @@ nav{
 }
 
 .formulaire{
-	display:inline-block;
+	display:flex;
+	justify-content: flex-start;
 	width: 50%;
 	height: 35px;
 	margin-left: 10%;
@@ -52,23 +45,32 @@ nav{
 	height:35px;
 	background-color: #ffff;
 	border: solid 1px #7a5440;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	-o-border-radius: 10px;
+	border-right: solid 0px;
 	border-radius: 10px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
 	font-family: arial, verdana, sans-serif;
 	font-size: 20px;
+	margin: 0px;
+	padding: 2px;
 
 }
 
 .formulaire .bouton{
-	background-image: url(google.png);
+	background-color: #F4A460;
 	background-repeat: no-repeat;
-	border-radius: 10px;
+	border-radius: 10px,10px,0px,0px;
 	width: 35px;
 	height: 100%;
 	padding: 0px;
 	margin: 0px;
+	border-left: solid 0px;
+	border-radius: 10px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	vertical-align: top;
+	border: solid 1px #7a5440;
+	border-left: solid 0px;
 }
 
 
@@ -91,7 +93,6 @@ header h1 {
 nav ul{
 	background-color: lightgrey;
 	font-size: 1.2em;
-	color: white;
 	list-style-type:none;
 	display : flex;
 	justify-content: center;
@@ -99,7 +100,27 @@ nav ul{
 	font-weight: bold;
 }
 
-li a{
+nav ul li ul{
+	display:none;
+	position:absolute;
+	margin-top: 0px;
+	padding : 0px;
+	justify-content: center;
+}
+nav ul li ul li a{
+	border-left: none;
+	border-right: none;
+	padding : 0px 0px;
+	display: block;
+}
+nav ul li:hover ul{
+	display:block;
+}
+nav ul li:hover ul li{
+	float:none;
+}
+
+nav ul li a{
 	display: inline-block;
 	color: white;
 	padding:5px 20px;
