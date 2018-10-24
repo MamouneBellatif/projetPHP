@@ -22,7 +22,16 @@ header {
 	margin: 0px;
 	padding: 0px;
 	display: flex;
+	position: fixed;
 
+}
+
+nav{
+	/* position: fixed;
+	top:0;
+	width: 100%;
+	padding-top : 100px;
+	 */
 }
 
 .head,h1{
@@ -33,17 +42,34 @@ header {
 .formulaire{
 	display:inline-block;
 	width: 50%;
+	height: 35px;
+	margin-left: 10%;
+	margin-top: 10px;
 }
 
 .formulaire .champ{
 	width: 90%;
 	height:35px;
+	background-color: #ffff;
+	border: solid 1px #7a5440;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	font-family: arial, verdana, sans-serif;
+	font-size: 20px;
+
 }
 
 .formulaire .bouton{
-	background-image: url(images/searchbar_button.png);background-repeat: no-repeat;width: 35px;height: 35px;padding: 0;
+	background-image: url(google.png);
+	background-repeat: no-repeat;
+	border-radius: 10px;
+	width: 35px;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
 }
-
 
 
 /**************************************************************
@@ -63,50 +89,44 @@ header h1 {
 }
 
 nav ul{
-	background-color: grey;
+	background-color: lightgrey;
+	font-size: 1.2em;
 	color: white;
 	list-style-type:none;
 	display : flex;
 	justify-content: center;
+	margin-top : 70px;
+	font-weight: bold;
 }
-
 
 li a{
 	display: inline-block;
 	color: white;
-	padding:20px 30px;
+	padding:5px 20px;
 	border-left: 1px solid white;
 	border-right: 1px solid white;
 }
+
 li a:link {
 	text-decoration:none;
 	color: #5ebcae;
 }
+
 li a:visited {
 	text-decoration:none;
 	color: #5ebcae;
 }
+
 li a:hover {
 	text-decoration:none;
 	color: tomato;
-	Font-Weight: Bold;
-}
-li a:active {
-	text-decoration:none;
-	color: tomato;
-	Font-Weight: Bold;
 }
 
-section{
-	display : flex;
-	justify-content: space-around;
-}
 
 article {
   width: 220px;
   height: 200px;
-  border: 1px solid black;
-	box-shadow: 5px 5px 2px #AAA;
+  border: 1px solid grey;
 	padding:10px;
 	margin : 5px;
 	text-align: center;
@@ -121,15 +141,12 @@ article img {
 
 section{
 	display: flex;
-	margin: 40px;
+	margin: auto;
 	flex-wrap: wrap;
+	justify-content :center;
+	max-width: 840px;
 }
-div{
-	display: flex;
-	flex-direction: column;
-	width: 200px;
-	height: 200px;
-}
+
 div img{
 	width: 100px;
 	height: 100px;
