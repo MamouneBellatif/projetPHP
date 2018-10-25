@@ -106,6 +106,7 @@ nav ul{
 	justify-content: center;
 	margin-top : 70px;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 nav ul li ul{

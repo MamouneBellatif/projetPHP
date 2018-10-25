@@ -18,7 +18,30 @@
 
   </header>
 
-  <?php include("categories.view.php") ?>
+  <?php
+    //création du menu
+    echo"<nav>";
+      echo"<ul>";
+        echo"<li><a href=\"../controler/afficherArticles.ctrl.php\">accueil</a></li>";
+        foreach ($listeCategorie as $key => $value) {
+          if (sizeof($value)>1){
+            $catPere = $value[0]->nom;
+            echo"<li><a href=\"../controler/afficherArticles.ctrl.php\">$catPere</a>";
+            echo"<ul>";
+              for ($i = 1; $i<sizeof($value); $i++){
+                $sousCat = $value[$i]->nom;
+                echo"<li><a href=\"../controler/afficherArticles.ctrl.php\">$sousCat</a></li>";
+              }
+            echo"</ul>";
+            echo"</li>";
+          }else{
+            $catPere = $value[0]->nom;
+            echo"<li><a href=\"../controler/afficherArticles.ctrl.php\">$catPere</a></li>";
+          }
+        }
+      echo"</ul>";
+    echo"</nav>";
+  ?>
 
     <?php
     echo '<section>';
