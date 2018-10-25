@@ -9,4 +9,4 @@
     ///////////////////////////////////////////////////////////
     $listeCategorie = $dao->getAllCat();
     include_once("../view/categories.view.php");
-    ?>
+?>
