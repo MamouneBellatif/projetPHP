@@ -48,7 +48,20 @@
     echo"</nav>";
   ?>
 
-    <?php
+  <?php
+    var_dump($nbArticle);
+    if ($nbArticle>9){
+      echo '<section>';
+        $refFirst = $articles[0]->ref;
+        echo "<a href=\"../controler/afficherArticles.ctrl.php?pred=1&cat=$cat&ref=$refFirst\"><img src=\"design/home.png\" alt=\"Précédents\"></a>";
+        //$endArticlesOb = end($articles);
+        $refEnd = end($articles)->ref;
+        echo "<a href=\"../controler/afficherArticles.ctrl.php?next=1&cat=$cat&ref=$refEnd\"><img src=\"design/right-arrow.png\" alt=\"Suivants\"></a>";
+      echo '</section>';
+    }
+  ?>
+
+  <?php
     echo '<section>';
     $PATH = '../view/imgArticles/';
     foreach ($articles as $key => $article) {
@@ -60,7 +73,7 @@
       echo '</article>';
     }
     echo '</section>';
-    ?>
+  ?>
 
   <footer>
   </p>Site fictif, issus de données réelles du Web</p>
