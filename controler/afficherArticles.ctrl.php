@@ -9,25 +9,22 @@
       $cat = 0;
 
     $nbArticle = $dao->getNbArticle($cat);
+    $okPrec = true;
+    $okNext = true;
 
     if (isset($_GET['ref'])){
       $ref = $_GET['ref'];
       if (isset($_GET['pred'])){
         $articles = $dao->prec($ref, $cat);
+        $okPrec = (sizeof($articles)>0) ? true : false;
       }elseif (isset($_GET['next'])){
         $articles = $dao->next($ref, $cat);
+        $okNext = (sizeof($articles)>0) ? true : false;
       }
     }else{
       $articles = $dao-> firstN($cat);
     }
 
-
-
-    // Article suivant
-    //$nextRef = $dao->next(end($articles)->ref);
-
-    // Les articles précédents
-    //$prev = $dao->prevN($articles[0]->ref,12);
 
     // categories
     $listeCategorie = $dao->getAllCat();

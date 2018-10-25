@@ -49,14 +49,16 @@
   ?>
 
   <?php
-    if ($nbArticle>9){
       echo '<section>';
-        $refFirst = $articles[0]->ref;
-        echo "<a href=\"../controler/afficherArticles.ctrl.php?pred=1&cat=$cat&ref=$refFirst\"><img src=\"design/home.png\" alt=\"Précédents\"></a>";
-        $refEnd = end($articles)->ref;
-        echo "<a href=\"../controler/afficherArticles.ctrl.php?next=1&cat=$cat&ref=$refEnd\"><img src=\"design/right-arrow.png\" alt=\"Suivants\"></a>";
+        if ($okPrec){
+          $refFirst = $articles[0]->ref;
+          echo "<a href=\"../controler/afficherArticles.ctrl.php?pred=1&cat=$cat&ref=$refFirst\"><img src=\"design/home.png\" alt=\"Précédents\"></a>";
+        }
+        if ($okNext){
+          $refEnd = end($articles)->ref;
+          echo "<a href=\"../controler/afficherArticles.ctrl.php?next=1&cat=$cat&ref=$refEnd\"><img src=\"design/right-arrow.png\" alt=\"Suivants\"></a>";
+        }
       echo '</section>';
-    }
   ?>
 
   <?php
