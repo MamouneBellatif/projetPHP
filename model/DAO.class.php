@@ -22,7 +22,13 @@
             }
         }
 
-
+        function estUneCatPere(int $cat) : int {
+          $req = "SELECT id FROM categorie WHERE id=$cat AND pere=id";
+          $descripteur = $this->db->query($req);
+          $estUneCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
+          return sizeof($estUneCatPere);
+        }
+        
         // Accès à toutes les catégories
         // Retourne une table d'objets de type Categorie
         function getAllCat() : array {
@@ -35,7 +41,6 @@
               $descripteur = $this->db->query($sousCatPere);
               $resSousCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Categorie');
               array_unshift($resSousCatPere, $value);
-              //var_dump($resSousCatPere);
               $resultat[] = $resSousCatPere;
             }
             return $resultat;
@@ -43,20 +48,17 @@
 
 
 
-        // Accès aux n premiers articles
-        // Cette méthode retourne un tableau contenant les n permier articles de
+        // Accès aux 9 premiers articles
+        // Cette méthode retourne un tableau contenant les 9 permier articles de
         // la base sous la forme d'objets de la classe Article.
-        function firstN(int $n, int $cat) : array {
+        function firstN( int $cat) : array {
             if ($cat==0){
-              $req = "SELECT * FROM article LIMIT $n";
+              $req = "SELECT * FROM article LIMIT 9";
             }else{
-              $req = "SELECT id FROM categorie WHERE id=$cat AND pere=id";
-              $descripteur = $this->db->query($req);
-              $estUneCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
-              if (sizeof($estUneCatPere)==1){
-                $req = "SELECT * FROM article WHERE categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT $n";
+              if ($this->estUneCatPere($cat)==1){
+                $req = "SELECT * FROM article WHERE categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT 9";
               }else{
-                $req = "SELECT * FROM article WHERE categorie=$cat LIMIT $n";
+                $req = "SELECT * FROM article WHERE categorie=$cat LIMIT 9";
               }
             }
 
@@ -65,63 +67,35 @@
             return $result;
         }
 
-        // Acces au n articles à partir de la reférence $ref
-        // Cette méthode retourne un tableau contenant n  articles de
-        // la base sous la forme d'objets de la classe Article.
-        /*function getN(int $n, int $cat) : array {
-            if ($cat==0)
-              $req = "SELECT * FROM (select * from article order by ref) LIMIT $n";
-            else
-              $req = "SELECT id FROM categorie WHERE id=$cat AND pere=id";
-              $descripteur = $this->db->query($req);
-              $estUneCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
-              if (sizeof($estUneCatPere)==1){
-                $req = "SELECT * FROM (select * from article order by ref) WHERE categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT $n";
-              }else{
-                $req = "SELECT * FROM (select * from article order by ref) WHERE categorie=$cat LIMIT $n";
-              }
-
-
-            $descripteur = $this->db->query($req);
-            $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
-            return $result;
-        }*/
-
         function getNbArticle(int $cat) : int {
-            if ($cat==0)
+            if ($cat==0){
               $req = "SELECT * FROM article";
-            else{
-              $req = "SELECT id FROM categorie WHERE id=$cat AND pere=id";
-              $descripteur = $this->db->query($req);
-              $estUneCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
-              if (sizeof($estUneCatPere)==1){
+            }else{
+              if ($this->estUneCatPere($cat)==1){
                 $req = "SELECT * FROM (select * from article order by ref) WHERE  categorie IN (select id FROM categorie WHERE pere=$cat)";
               }else{
                 $req = "SELECT * FROM (select * from article order by ref) WHERE categorie=$cat";
               }
-            }
+             }
             $descripteur = $this->db->query($req);
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
+
             return sizeof($result);
         }
 
-        // Acces à la référence qui suit la référence $ref dans l'ordre des références
-        function next(int $ref, int $cat) : int {
-            /*$req = "SELECT * FROM (select * from article order by ref) WHERE ref > $ref LIMIT 1";
-            $descripteur = $this->db->query($req);
-            $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
-            return $result[0]->ref;*/
+        // Accès aux 9 articles suivant le derniers affiché
+        // Cette méthode retourne un tableau contenant les 9 articles, suivant le derniers affiché, de
+        // la base sous la forme d'objets de la classe Article.
+        function next(int $ref, int $cat) : array {
             if ($cat==0)
-              $req = "SELECT * FROM (select * from article order by ref) WHERE ref >$ref LIMIT $n";
-            else
-              $req = "SELECT id FROM categorie WHERE id=$cat AND pere=id";
-              $descripteur = $this->db->query($req);
-              $estUneCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
-              if (sizeof($estUneCatPere)==1){
-                $req = "SELECT * FROM (select * from article order by ref) WHERE ref >$ref AND categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT $n";
+              $req = "SELECT * FROM (select * from article order by ref) WHERE ref >$ref LIMIT 9";
+            else{
+              if ($this->estUneCatPere($cat)==1){
+                $req = "SELECT * FROM (select * from article order by ref) WHERE ref >$ref AND categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT 9";
               }else{
-                $req = "SELECT * FROM (select * from article order by ref) WHERE ref >$ref AND categorie=$cat LIMIT $n";
+                $req = "SELECT * FROM (select * from article order by ref) WHERE ref >$ref AND categorie=$cat LIMIT 9";
               }
+            }
 
 
             $descripteur = $this->db->query($req);
@@ -129,23 +103,19 @@
             return $result;
         }
 
-        // Acces aux n articles qui précèdent de $n la référence $ref dans l'ordre des références
-        function prevN(int $ref,int $n, int $cat): array {
-            /*$req = "SELECT * FROM (select * from article order by ref desc) WHERE ref <$ref LIMIT $n";
-            $descripteur = $this->db->query($req);
-            $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
-            return array_reverse($result);*/
+        // Accès aux 9 articles précédents le derniers affiché
+        // Cette méthode retourne un tableau contenant les 9 articles, précédents le derniers affiché, de
+        // la base sous la forme d'objets de la classe Article.
+        function prec(int $ref, int $cat): array {
             if ($cat==0)
-              $req = "SELECT * FROM (select * from article order by ref) WHERE ref <$ref LIMIT $n";
-            else
-              $req = "SELECT id FROM categorie WHERE id=$cat AND pere=id";
-              $descripteur = $this->db->query($req);
-              $estUneCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
-              if (sizeof($estUneCatPere)==1){
-                $req = "SELECT * FROM (select * from article order by ref) WHERE ref <$ref AND categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT $n";
+              $req = "SELECT * FROM (select * from article order by ref) WHERE ref <$ref LIMIT 9";
+            else{
+              if ($this->estUneCatPere($cat)==1){
+                $req = "SELECT * FROM (select * from article order by ref) WHERE ref <$ref AND categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT 9";
               }else{
-                $req = "SELECT * FROM (select * from article order by ref) WHERE ref <$ref AND categorie=$cat LIMIT $n";
+                $req = "SELECT * FROM (select * from article order by ref) WHERE ref <$ref AND categorie=$cat LIMIT 9";
               }
+            }
 
 
             $descripteur = $this->db->query($req);

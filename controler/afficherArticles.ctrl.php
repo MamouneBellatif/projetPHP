@@ -13,12 +13,12 @@
     if (isset($_GET['ref'])){
       $ref = $_GET['ref'];
       if (isset($_GET['pred'])){
-        $articles = $dao->prevN($ref,12, $cat);
+        $articles = $dao->prec($ref, $cat);
       }elseif (isset($_GET['next'])){
         $articles = $dao->next($ref, $cat);
       }
     }else{
-      $articles = $dao-> firstN(9, $cat);
+      $articles = $dao-> firstN($cat);
     }
 
 
