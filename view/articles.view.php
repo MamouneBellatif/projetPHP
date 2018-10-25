@@ -27,7 +27,8 @@
         foreach ($listeCategorie as $key => $value) {
           if (sizeof($value)>1){
             $catPere = $value[0]->nom;
-            echo"<li><a href=\"../controler/afficherArticles.ctrl.php\">$catPere</a>";
+            $numCat = $value[0]->id;
+            echo"<li><a href=\"../controler/afficherArticles.ctrl.php?cat=$numCat\">$catPere</a>";
             //affichage des sous-catégories
             echo"<ul>";
               for ($i = 1; $i<sizeof($value); $i++){

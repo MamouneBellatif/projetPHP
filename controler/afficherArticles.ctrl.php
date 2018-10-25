@@ -9,9 +9,9 @@
 
     if (isset($_GET['ref'])){
       $ref = $_GET['ref'];
-      $articles = $dao-> getN($ref, 12, $cat);
+      $articles = $dao-> getN($ref, 9, $cat);
     }else
-      $articles = $dao-> firstN(12, $cat);
+      $articles = $dao-> firstN(9, $cat);
 
 
     // Article suivant

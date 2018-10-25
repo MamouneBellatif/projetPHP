@@ -47,10 +47,18 @@
         // Cette méthode retourne un tableau contenant les n permier articles de
         // la base sous la forme d'objets de la classe Article.
         function firstN(int $n, int $cat) : array {
-            if ($cat==0)
+            if ($cat==0){
               $req = "SELECT * FROM article LIMIT $n";
-            else
-              $req = "SELECT * FROM article WHERE categorie=$cat LIMIT $n";
+            }else{
+              $req = "SELECT id FROM categorie WHERE id=$cat AND pere=id";
+              $descripteur = $this->db->query($req);
+              $estUneCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
+              if (sizeof($estUneCatPere)==1){
+                $req = "SELECT * FROM article WHERE categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT $n";
+              }else{
+                $req = "SELECT * FROM article WHERE categorie=$cat LIMIT $n";
+              }
+            }
 
             $descripteur = $this->db->query($req);
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
@@ -72,7 +80,7 @@
         }
 
         // Acces à la référence qui suit la référence $ref dans l'ordre des références
-        function next(int $ref) : int {
+        /*function next(int $ref) : int {
             $req = "SELECT * FROM (select * from article order by ref) WHERE ref > $ref LIMIT 1";
             $descripteur = $this->db->query($req);
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
@@ -88,30 +96,7 @@
             $descripteur = $this->db->query($req);
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
             return array_reverse($result);
-        }
-
-        // Acces à une catégorie
-        // Retourne un objet de la classe Categorie connaissant son identifiant
-        function getCat(int $id): Categorie {
-            ///////////////////////////////////////////////////////
-            //  A COMPLETER
-            ///////////////////////////////////////////////////////
-
-            return new Categorie();
-        }
-
-
-
-
-        // Acces au n articles à partir de la reférence $ref
-        // Retourne une table d'objets de la classe Article
-        function getNCateg(int $ref,int $n,string $categorie) : array {
-            ///////////////////////////////////////////////////////
-            //  A COMPLETER
-            ///////////////////////////////////////////////////////
-            return array();
-        }
-
+        }*/
     }
 
     ?>
