@@ -26,10 +26,19 @@
         // Accès à toutes les catégories
         // Retourne une table d'objets de type Categorie
         function getAllCat() : array {
-            $req = "SELECT * FROM categorie";
-            $descripteur = $this->db->query($req);
-            $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Categorie');
-            return $result;
+            $catPere = "SELECT * FROM categorie WHERE id=pere";
+            $descripteur = $this->db->query($catPere);
+            $resCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Categorie');
+            $resultat = array();
+            foreach ($resCatPere as $key => $value) {
+              $sousCatPere = "SELECT * FROM categorie WHERE pere=$value->id AND id!=pere";
+              $descripteur = $this->db->query($sousCatPere);
+              $resSousCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Categorie');
+              array_unshift($resSousCatPere, $value);
+              //var_dump($resSousCatPere);
+              $resultat[] = $resSousCatPere;
+            }
+            return $resultat;
         }
 
 
