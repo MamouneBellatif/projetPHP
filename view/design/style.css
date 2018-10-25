@@ -21,6 +21,7 @@ header {
 	width: 100%;
 	/* background-color: #5ebcae; */
 	margin: 0px;
+	margin-top: 0px;
 	padding: 0px;
 	display: flex;
 	position: fixed;
