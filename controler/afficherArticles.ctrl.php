@@ -1,6 +1,4 @@
 <?php
-    // Partie principale
-
     // Inclusion du modèle
     include_once("../model/DAO.class.php");
 
@@ -17,6 +15,10 @@
     // Les articles précédents
     $prev = $dao->prevN($articles[0]->ref,12);
 
+    // categories
+    $listeCategorie = $dao->getAllCat();
+
+
     // Charge la vue
     include("../view/articles.view.php");
-    ?>
+?>
