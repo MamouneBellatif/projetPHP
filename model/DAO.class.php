@@ -46,8 +46,12 @@
         // Accès aux n premiers articles
         // Cette méthode retourne un tableau contenant les n permier articles de
         // la base sous la forme d'objets de la classe Article.
-        function firstN(int $n) : array {
-            $req = "SELECT * FROM article LIMIT $n";
+        function firstN(int $n, int $cat) : array {
+            if ($cat==0)
+              $req = "SELECT * FROM article LIMIT $n";
+            else
+              $req = "SELECT * FROM article WHERE categorie=$cat LIMIT $n";
+
             $descripteur = $this->db->query($req);
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
             return $result;
@@ -56,8 +60,12 @@
         // Acces au n articles à partir de la reférence $ref
         // Cette méthode retourne un tableau contenant n  articles de
         // la base sous la forme d'objets de la classe Article.
-        function getN(int $ref,int $n) : array {
-            $req = "SELECT * FROM (select * from article order by ref) WHERE ref >=$ref LIMIT $n";
+        function getN(int $ref,int $n, int $cat) : array {
+            if ($cat==0)
+              $req = "SELECT * FROM (select * from article order by ref) WHERE ref >=$ref LIMIT $n";
+            else
+              $req = "SELECT * FROM (select * from article order by ref) WHERE ref >=$ref AND categorie=$cat LIMIT $n";
+
             $descripteur = $this->db->query($req);
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
             return $result;
@@ -69,7 +77,6 @@
             $descripteur = $this->db->query($req);
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
             return $result[0]->ref;
-
         }
 
         // Acces aux n articles qui précèdent de $n la référence $ref dans l'ordre des références

@@ -23,20 +23,24 @@
     echo"<nav>";
       echo"<ul>";
         echo"<li><a href=\"../controler/afficherArticles.ctrl.php\">accueil</a></li>";
+        //affichage des catégories
         foreach ($listeCategorie as $key => $value) {
           if (sizeof($value)>1){
             $catPere = $value[0]->nom;
             echo"<li><a href=\"../controler/afficherArticles.ctrl.php\">$catPere</a>";
+            //affichage des sous-catégories
             echo"<ul>";
               for ($i = 1; $i<sizeof($value); $i++){
                 $sousCat = $value[$i]->nom;
-                echo"<li><a href=\"../controler/afficherArticles.ctrl.php\">$sousCat</a></li>";
+                $numSousCat = $value[$i]->id;
+                echo"<li><a href=\"../controler/afficherArticles.ctrl.php?cat=$numSousCat\">$sousCat</a></li>";
               }
             echo"</ul>";
             echo"</li>";
           }else{
             $catPere = $value[0]->nom;
-            echo"<li><a href=\"../controler/afficherArticles.ctrl.php\">$catPere</a></li>";
+            $numCat = $value[0]->id;
+            echo"<li><a href=\"../controler/afficherArticles.ctrl.php?cat=$numCat\">$catPere</a></li>";
           }
         }
       echo"</ul>";
