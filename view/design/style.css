@@ -6,10 +6,7 @@
 
 
 body {
-	/* font-family: "Arial"; */
-	/* font-family: "Tahoma", sans-serif; */
 	font-family: HelveticaNeueW01-Thin,HelveticaNeueW02-Thin,HelveticaNeueW10-35Thin,sans-serif;
-  /* font-family: 'Josefin Slab', serif; */
 	margin: auto;
 	border: 1px solid #CCC;
 	box-shadow: 10px 10px 5px #888888;
@@ -19,7 +16,8 @@ header {
 	font-size:large;
 	font-weight: bolder;
 	width: 100%;
-	/* background-color: #5ebcae; */
+	border-left: none;
+	border-right: none;
 	margin: 0px;
 	margin-top: 0px;
 	padding: 0px;
@@ -77,7 +75,36 @@ header {
 	border-left: solid 0px;
 }
 
+.connexion {
+	width: 300px;
+	height: auto;
+	position: fixed;
+	top : 0px;
+	right: 10px;
+}
+.connexion ul{
+	list-style-type:none;
+	display : flex;
+	justify-content: center;
+}
+.connexion ul li a{
+	display: inline-block;
+	margin-right: 10px;
+}
 
+.connexion ul li ul{
+	display:none;
+	position:absolute;
+	justify-content: center;
+	padding-left : 0px;
+}
+
+.connexion ul li:hover ul{
+	display:block;
+}
+.connexion ul li:hover ul li{
+	float:none;
+}
 /**************************************************************
 * Adapte la taille de l'image dans le header
 **************************************************************/
@@ -95,11 +122,11 @@ header h1 {
 	color: #fff;
 }
 
-nav ul{
-	/* background-color: lightgrey; */
+/**************************************************************
+* Menu
+**************************************************************/
+.menu ul{
 	background: #CCCCCC;
-  /* background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
-  background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%); */
 	font-size: 1.2em;
 	list-style-type:none;
 	display : flex;
@@ -107,31 +134,37 @@ nav ul{
 	margin-top : 70px;
 	font-weight: bold;
 	text-transform: uppercase;
+	color : black;
+}
+.menu ul li a{
+	display: inline-block;
+	padding:5px 20px;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
 }
 
-nav ul li ul{
+.menu ul li ul{
 	display:none;
 	position:absolute;
 	margin-top: 0px;
 	padding : 0px;
 	justify-content: center;
 }
-nav ul li ul li a{
+.menu ul li ul li a{
 	border-left: none;
 	border-right: none;
 	padding : 5px 5px;
 	display: block;
 }
-nav ul li:hover ul{
+.menu ul li:hover ul{
 	display:block;
 }
-nav ul li:hover ul li{
+.menu ul li:hover ul li{
 	float:none;
 }
 
-nav ul li a{
+.menu ul li a{
 	display: inline-block;
-	color: white;
 	padding:5px 20px;
 	border-left: 1px solid white;
 	border-right: 1px solid white;

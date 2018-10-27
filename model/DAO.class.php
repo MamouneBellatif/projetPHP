@@ -2,6 +2,7 @@
 
     require_once("../model/Categorie.class.php");
     require_once("../model/Article.class.php");
+    require_once("../model/User.class.php");
 
     // Creation de l'unique objet DAO
     $dao = new DAO();
@@ -28,7 +29,7 @@
           $estUneCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
           return sizeof($estUneCatPere);
         }
-        
+
         // Accès à toutes les catégories
         // Retourne une table d'objets de type Categorie
         function getAllCat() : array {
@@ -72,9 +73,9 @@
               $req = "SELECT * FROM article";
             }else{
               if ($this->estUneCatPere($cat)==1){
-                $req = "SELECT * FROM (select * from article order by ref) WHERE  categorie IN (select id FROM categorie WHERE pere=$cat)";
+                $req = "SELECT * FROM article WHERE  categorie IN (select id FROM categorie WHERE pere=$cat)";
               }else{
-                $req = "SELECT * FROM (select * from article order by ref) WHERE categorie=$cat";
+                $req = "SELECT * FROM article WHERE categorie=$cat";
               }
              }
             $descripteur = $this->db->query($req);
@@ -108,19 +109,49 @@
         // la base sous la forme d'objets de la classe Article.
         function prec(int $ref, int $cat): array {
             if ($cat==0)
-              $req = "SELECT * FROM (select * from article order by ref) WHERE ref <$ref LIMIT 9";
+              $req = "SELECT * FROM (select * from article order by ref DESC) WHERE ref < $ref LIMIT 9";
             else{
               if ($this->estUneCatPere($cat)==1){
-                $req = "SELECT * FROM (select * from article order by ref) WHERE ref <$ref AND categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT 9";
+                $req = "SELECT * FROM (select * from article order by ref DESC) WHERE ref < $ref AND categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT 9";
               }else{
-                $req = "SELECT * FROM (select * from article order by ref) WHERE ref <$ref AND categorie=$cat LIMIT 9";
+                $req = "SELECT * FROM (select * from article order by ref DESC) WHERE ref < $ref AND categorie = $cat LIMIT 9";
               }
             }
 
-
             $descripteur = $this->db->query($req);
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
-            return $result;
+            return array_reverse($result);
+        }
+
+        //ajoute un utilisateur à la base de données avec un mot de passe hashé
+        function addUser($mail, $password){
+          $req = $this->db->prepare("INSERT INTO user VALUES ((SELECT max(id)+1 FROM user), :email, :pass)");
+          $param = array('email' => $mail, 'pass' => $password);
+          //var_dump($param);
+          $req->execute($param);
+          $result = $req->fetchAll(PDO::FETCH_CLASS, 'User');
+          //var_dump($result);
+        }
+
+        //on vérifie si l'adresse mail est dans la base de données
+        //retourne vrai non présente
+        function verifMail($mail) : int {
+          $req = $this->db->prepare("SELECT * FROM user WHERE mail= :mail");
+          $req->execute(array('mail' => $mail));
+          $result = $req->fetchAll(PDO::FETCH_CLASS, 'User');
+          return sizeof($result);
+        }
+
+        //on regarde si l'utilisateur existe dans la base de donnée
+        function verifUser($mail, $password) : int {
+          if ( $this->verifMail($mail) == 1){
+            $req = $this->db->prepare("SELECT * FROM user WHERE mail=?");
+            $req->execute(array($mail));
+            $result = $req->fetchAll(PDO::FETCH_CLASS, 'User');
+            return $result[0]->pass == $password;
+          }else{
+            return 0;
+          }
         }
     }
 

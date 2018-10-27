@@ -13,3 +13,9 @@ CREATE TABLE categorie (
 	pere INTEGER,
 	FOREIGN KEY(pere) REFERENCES categorie(id)
 );
+
+CREATE TABLE user (
+	id INTEGER PRIMARY KEY,
+	mail TEXT UNIQUE,
+	pass TEXT
+);
