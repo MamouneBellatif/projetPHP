@@ -125,10 +125,8 @@
         function addUser($mail, $password){
           $req = $this->db->prepare("INSERT INTO user VALUES ((SELECT max(id)+1 FROM user), :email, :pass)");
           $param = array('email' => $mail, 'pass' => $password);
-          //var_dump($param);
           $req->execute($param);
           $result = $req->fetchAll(PDO::FETCH_CLASS, 'User');
-          //var_dump($result);
         }
 
         //on vérifie si l'adresse mail est dans la base de données
