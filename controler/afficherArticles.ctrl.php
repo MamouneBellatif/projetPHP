@@ -86,7 +86,6 @@
     //on vérifie que l'utilisateur a bien rentré tous les champs
     if ( isset($_GET["inscription"]) && isset($_GET["password"]) && isset($_GET["passwordConfirm"]) ){
 
-
       $first = false;
 
       //on vérifie que l'adresse mail soit bonne
