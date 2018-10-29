@@ -99,15 +99,13 @@
       $PATH = '../view/imgArticles/';
       foreach ($articles as $key => $article) {
         $img = $PATH.$article->image;
-        echo '<article>';
-          echo "<p>$article->libelle</p>";
-          echo "<p><img src='$img' /></p>";
-          echo "<p>$article->prix</p>";
-          if ($userConnected){
-            echo"<a href=\"../controler/afficherArticles.ctrl.php?refArticle=$article->ref\"><input type=\"submit\" value=\"Ajouter\"></a>";
-          }
-
-        echo '</article>';
+        echo '<a href="../controler/afficherArticles.ctrl.php?refArticle=$article->ref"'>;
+          echo '<article>';
+            echo "<p>$article->libelle</p>";
+            echo "<p><img src='$img' /></p>";
+            echo "<p>$article->prix</p>";
+          echo '</article>';
+        echo '</a>';
       }
       echo '</section>';
 

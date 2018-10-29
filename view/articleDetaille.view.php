@@ -95,14 +95,10 @@
     //////////////////////////////////
     //affichage de l'article
     //////////////////////////////////
-    $article = array_search($_GET['art'],$articles);
     echo '<article>';
       echo "<p>$article->libelle</p>";
       echo "<p><img src='$img' /></p>";
       echo "<p>$article->prix</p>";
-      if ($userConnected){
-        echo"<a href=\"../controler/afficherArticles.ctrl.php?refArticle=$article->ref\"><input type=\"submit\" value=\"Ajouter\"></a>";
-      }
     echo '</article>';
 
   ?>

@@ -71,6 +71,13 @@
       // Charge la vue
       include("../view/articles.view.php");
 
+  } else if (!(isset($_GET['refArticle'])){
+
+    $article = array_search($_GET['refArticle'],$articles);
+    
+    include("../view/articleDetaille.view.php");
+
+
   } else {
     //permet à la vue inscription de savoir si l'utlisateur a été ajouter avec succés
     $ajouter = false;
