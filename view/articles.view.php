@@ -99,7 +99,7 @@
       $PATH = '../view/imgArticles/';
       foreach ($articles as $key => $article) {
         $img = $PATH.$article->image;
-        echo '<a href="articleDetaille.view.php?art=$article->libelle">';
+        echo '<a href="./articleDetaille.view.php?art=$article->libelle">';
         echo '<article>';
           echo "<p>$article->libelle</p>";
           echo "<p><img src='$img' /></p>";
