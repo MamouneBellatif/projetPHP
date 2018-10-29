@@ -22,8 +22,9 @@
     <ul>
       <?php
         if ($userConnected){
-          echo "<li>Moi";
+          echo "<li>MON COMPTE";
             echo "<ul>";
+              echo "<li><a href=\"../controler/afficherArticles.ctrl.php\">Mon panier</a></li>";
               echo "<li><a href=\"../controler/afficherArticles.ctrl.php?deconnexion=1\">Déconnexion</a></li>";
             echo "</ul>";
           echo "</li>";
@@ -42,9 +43,11 @@
   <?php
       } /*ATTENTION : fin du if précédent*/
       echo"</ul>";
-    echo"</nav>";
+    echo"</nav>"; /*ATTENTION : fin du nav précédent*/
 
+    //////////////////////////////////
     //création du menu
+    //////////////////////////////////
     echo"<nav class=\"menu\">";
       echo"<ul>";
         echo"<li><a href=\"../controler/afficherArticles.ctrl.php\">accueil</a></li>";
@@ -89,17 +92,25 @@
   ?>
 
   <?php
-    echo '<section>';
-    $PATH = '../view/imgArticles/';
-    foreach ($articles as $key => $article) {
-      $img = $PATH.$article->image;
-      echo '<article>';
-        echo "<p>$article->libelle</p>";
-        echo "<p><img src='$img' /></p>";
-        echo "<p>$article->prix</p>";
-      echo '</article>';
-    }
-    echo '</section>';
+    //////////////////////////////////
+    //affichage des articles
+    //////////////////////////////////
+      echo '<section>';
+      $PATH = '../view/imgArticles/';
+      foreach ($articles as $key => $article) {
+        $img = $PATH.$article->image;
+        echo '<article>';
+          echo "<p>$article->libelle</p>";
+          echo "<p><img src='$img' /></p>";
+          echo "<p>$article->prix</p>";
+          if ($userConnected){
+            echo"<a href=\"../controler/afficherArticles.ctrl.php?refArticle=$article->ref\"><input type=\"submit\" value=\"Ajouter\"></a>";
+          }
+
+        echo '</article>';
+      }
+      echo '</section>';
+
   ?>
 
   <footer>

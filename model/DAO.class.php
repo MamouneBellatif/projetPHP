@@ -47,8 +47,6 @@
             return $resultat;
         }
 
-
-
         // Accès aux 9 premiers articles
         // Cette méthode retourne un tableau contenant les 9 permier articles de
         // la base sous la forme d'objets de la classe Article.

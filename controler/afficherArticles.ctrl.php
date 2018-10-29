@@ -1,47 +1,38 @@
 <?php
-// supprimer setcookie('pw_lamoucherie') setcookie('usr_lamoucherie') pour ne pas stocker de mot de passe et identifiant
-// aura pour conséquence la supression de la variable $userConnected
-// utiliser la supperglobal _SESSION pour vérifier si un utilisateur est conncter à chaque page
-
   // Inclusion du modèle
   include_once("../model/DAO.class.php");
+
+  //on démarre une session
+  session_start();
 
   //si pas "inscription" afficher les articles
   //sinon redirection vers la vue d'Inscription
   if (!(isset($_GET['inscription']))) {
 
       //on vérifie si l'utilisateur veut se déconnecter
-      //si oui on supprime les cookies
+      //si oui on supprime la session
       if (isset($_GET['deconnexion'])){
-        setcookie('usr_lamoucherie'); //permet de renvoyer le cookie sans valeur
-        setcookie('pw_lamoucherie');  //la fct unset(_COOKIE) ne marche pas
+        session_destroy();
       }
 
-      //on vérifie si l'utilisateur est connecté
+      //on vérifie si l'utilisateur est connecté (connecter sur la variable globale $_SESSION  possède un mail )
       //$userConnected permet à la vue d'afficher ou non les boutons inscription/connxion ou l'utlisateur courant
-      if (isset($_COOKIE['usr_lamoucherie']) && isset($_COOKIE['pw_lamoucherie'])){
-        if ($dao->verifUser($_COOKIE['usr_lamoucherie'],$_COOKIE['pw_lamoucherie']) == 1){
-          $userConnected = true;
-        }else{
-          $userConnected = false;
-        }
+      if ( isset($_SESSION['mail']) ){
+        $userConnected = true;
       }else{
         $userConnected = false;
       }
 
       //si l'utilisateur souhaite se connecter
-      //on le connecte et créer un cookie pour qu'il puisse le rester
-      if ( isset($_GET['user_mail']) && isset($_GET['user_password']) && $userConnected == false){
+      //on le connecte et l'ajoute à la session pour qu'il puisse le rester
+      if ( isset($_GET['user_mail']) && isset($_GET['user_password'])){
         if ($dao->verifUser($_GET['user_mail'], $_GET["user_password"]) == 1){
-          setcookie('usr_lamoucherie', $_GET['user_mail']);
-          setcookie('pw_lamoucherie', $_GET['user_password']);
+          $_SESSION['mail'] = $_GET['user_mail'];
           $userConnected = true;
         }else{
-          echo "connexion impossible!";
           $userConnected = false;
         }
       }
-
 
       //pour identifier la catégorie en train d'être visité
       // rien ou 0 signifie qu'on est sur la page d'accueil
@@ -105,13 +96,12 @@
         //on vérifie que le MDP et le MDP de confirmation soit le même
         //assure à l'utilisateur de ne pas avoir fait une faute de frappe
         $goodPw = ( ($_GET["password"]) == ($_GET["passwordConfirm"]) );
-        var_dump($goodPw);
         if ($goodPw){
           //on peut rajouter un hashage du MDP pour la sécurité avec password_hash()
           $dao->addUser($_GET["inscription"], $_GET["passwordConfirm"]);
-          //on crée les cookie de la connexion pour qu'il le reste durant toute la navigation sur le site
-          setcookie('usr_lamoucherie', $_GET["inscription"]);
-          setcookie('pw_lamoucherie', $_GET["passwordConfirm"]);
+          //ajout du mail de session pour qu'il reste connecter durant toute la navigation sur le site
+          $_SESSION['mail'] = $_GET["inscription"];
+
           $ajouter = true;
         }
       }
