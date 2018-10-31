@@ -130,8 +130,9 @@
 
         //ajoute un utilisateur à la base de données avec un mot de passe hashé
         function addUser($mail, $password){
-          $req = $this->db->prepare("INSERT INTO user VALUES ((SELECT max(id)+1 FROM user), :email, :pass)");
-          $param = array('email' => $mail, 'pass' => $password);
+          $statut = 'simple';
+          $req = $this->db->prepare("INSERT INTO user VALUES ((SELECT max(id)+1 FROM user), :email, :pass, :statut)");
+          $param = array('email' => $mail, 'pass' => $password, 'statut' => $statut);
           $req->execute($param);
           $result = $req->fetchAll(PDO::FETCH_CLASS, 'User');
         }
