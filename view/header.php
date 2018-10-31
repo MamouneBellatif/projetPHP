@@ -24,7 +24,7 @@
             echo "<li>MON COMPTE";
               echo "<ul>";
                 echo "<li><a href=\"../controler/main.ctrl.php?panier=1\">Mon panier</a></li>";
-                echo "<li><a href=\"../controler/main.ctrl.php\">Information compte</a></li>";
+                echo "<li><a href=\"../controler/main.ctrl.php?infocompte=1\">Information compte</a></li>";
                 echo "<li><a href=\"../controler/main.ctrl.php?deconnexion=1\">Déconnexion</a></li>";
               echo "</ul>";
             echo "</li>";
