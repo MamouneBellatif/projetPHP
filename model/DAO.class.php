@@ -47,17 +47,24 @@
             return $resultat;
         }
 
-        // Accès aux 9 premiers articles
-        // Cette méthode retourne un tableau contenant les 9 permier articles de
+        function getArticle( int $ref){
+          $req = "SELECT * FROM article WHERE ref=$ref";
+          $descripteur = $this->db->query($req);
+          $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
+          return $result[0];
+        }
+
+        // Accès aux 12 premiers articles
+        // Cette méthode retourne un tableau contenant les 12 permier articles de
         // la base sous la forme d'objets de la classe Article.
         function firstN( int $cat) : array {
             if ($cat==0){
-              $req = "SELECT * FROM article LIMIT 9";
+              $req = "SELECT * FROM article LIMIT 12";
             }else{
               if ($this->estUneCatPere($cat)==1){
-                $req = "SELECT * FROM article WHERE categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT 9";
+                $req = "SELECT * FROM article WHERE categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT 12";
               }else{
-                $req = "SELECT * FROM article WHERE categorie=$cat LIMIT 9";
+                $req = "SELECT * FROM article WHERE categorie=$cat LIMIT 12";
               }
             }
 
@@ -82,17 +89,17 @@
             return sizeof($result);
         }
 
-        // Accès aux 9 articles suivant le derniers affiché
-        // Cette méthode retourne un tableau contenant les 9 articles, suivant le derniers affiché, de
+        // Accès aux 12 articles suivant le derniers affiché
+        // Cette méthode retourne un tableau contenant les 12 articles, suivant le derniers affiché, de
         // la base sous la forme d'objets de la classe Article.
         function next(int $ref, int $cat) : array {
             if ($cat==0)
-              $req = "SELECT * FROM (select * from article order by ref) WHERE ref >$ref LIMIT 9";
+              $req = "SELECT * FROM (select * from article order by ref) WHERE ref >$ref LIMIT 12";
             else{
               if ($this->estUneCatPere($cat)==1){
-                $req = "SELECT * FROM (select * from article order by ref) WHERE ref >$ref AND categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT 9";
+                $req = "SELECT * FROM (select * from article order by ref) WHERE ref >$ref AND categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT 12";
               }else{
-                $req = "SELECT * FROM (select * from article order by ref) WHERE ref >$ref AND categorie=$cat LIMIT 9";
+                $req = "SELECT * FROM (select * from article order by ref) WHERE ref >$ref AND categorie=$cat LIMIT 12";
               }
             }
 
@@ -102,17 +109,17 @@
             return $result;
         }
 
-        // Accès aux 9 articles précédents le derniers affiché
-        // Cette méthode retourne un tableau contenant les 9 articles, précédents le derniers affiché, de
+        // Accès aux 12 articles précédents le derniers affiché
+        // Cette méthode retourne un tableau contenant les 12 articles, précédents le derniers affiché, de
         // la base sous la forme d'objets de la classe Article.
         function prec(int $ref, int $cat): array {
             if ($cat==0)
-              $req = "SELECT * FROM (select * from article order by ref DESC) WHERE ref < $ref LIMIT 9";
+              $req = "SELECT * FROM (select * from article order by ref DESC) WHERE ref < $ref LIMIT 12";
             else{
               if ($this->estUneCatPere($cat)==1){
-                $req = "SELECT * FROM (select * from article order by ref DESC) WHERE ref < $ref AND categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT 9";
+                $req = "SELECT * FROM (select * from article order by ref DESC) WHERE ref < $ref AND categorie IN (select id FROM categorie WHERE pere=$cat) LIMIT 12";
               }else{
-                $req = "SELECT * FROM (select * from article order by ref DESC) WHERE ref < $ref AND categorie = $cat LIMIT 9";
+                $req = "SELECT * FROM (select * from article order by ref DESC) WHERE ref < $ref AND categorie = $cat LIMIT 12";
               }
             }
 

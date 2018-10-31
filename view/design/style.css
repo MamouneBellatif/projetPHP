@@ -202,6 +202,9 @@ article img {
 	   width: 100px;
 }
 
+/**************************************************************
+* Affichage d'un/des articles
+**************************************************************/
 section{
 	display: flex;
 	margin: auto;
@@ -210,7 +213,7 @@ section{
 	max-width: 840px;
 }
 
-div img{
+section div img{
 	width: 100px;
 	height: 100px;
 }
