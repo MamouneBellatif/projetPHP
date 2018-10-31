@@ -1,5 +1,5 @@
  <?php
   $currentUser = $dao->getUser($_GET[$_SESSION['mail']]);
 
-  include('infoCompte.view.php');
+  include('../view/infoCompte.view.php');
  ?>
