@@ -16,6 +16,9 @@ CREATE TABLE categorie (
 
 CREATE TABLE user (
 	id INTEGER PRIMARY KEY,
-	mail TEXT UNIQUE,
-	pass TEXT
+	mail TEXT UNIQUE
+	pass TEXT,
+	statut TEXT check (statut in ('simple', 'admin'))
 );
+
+CREATE TABLE
