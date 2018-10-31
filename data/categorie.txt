@@ -1,7 +1,7 @@
 1|combat|1
 2|compagnie|2
 3|assistance|3
-4|elevage|4
+4|autre|4
 11|soutien|1
 12|degat|1
 13|tank|1

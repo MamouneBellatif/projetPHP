@@ -241,6 +241,7 @@ section div img{
 .articles div h2 {
 	font-size:1.3em;
 }
+
 /**************************************************************
 * inscription
 **************************************************************/
@@ -274,11 +275,27 @@ section form input {
 	background-color: DimGray;
 	border-radius: 10px;
 }
+
 .prixTotal p {
+	margin : 16px 16px;
 	padding : 15px;
 	color : white;
 	background-color: DimGray;
 	border-radius: 10px;
+}
+.prixTotal a {
+	text-decoration:none;
+	margin : 16px 16px;
+	padding : 15px;
+	color : white;
+	background-color: DimGray;
+	border-radius: 10px;
+	color : white;
+}
+.prixTotal a:hover {
+	text-decoration:none;
+	background-color: tomato;
+	color : black;
 }
 .articlePanier article img{
 	width: 100px;

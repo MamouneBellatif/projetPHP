@@ -6,6 +6,10 @@
         echo"<legend> Inscription </legend>";
         echo "<form action=\"../controler/main.ctrl.php\" method=\"get\">";
           echo "<input type=\"email\" name=\"inscription\" placeholder=\"e-mail\">";
+          echo "<p></p>";
+          echo "<input type=\"text\" name=\"nom\" placeholder=\"nom\">";
+          echo "<input type=\"text\" name=\"prenom\" placeholder=\"prénom\">";
+          echo "<p></p>";
           echo "<input type=\"password\" name=\"password\" placeholder=\"mot de passe\">";
           echo "<input type=\"password\" name=\"passwordConfirm\" placeholder=\"répeter\">";
           echo "<input type=\"submit\" value=\"Valider\">";

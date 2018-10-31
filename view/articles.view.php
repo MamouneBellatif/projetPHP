@@ -25,7 +25,7 @@ echo '<section class="articles">';
       echo '<article>';
         echo "<p>$article->libelle</p>";
         echo "<p><img src='$img' /></p>";
-        echo "<p>$article->prix</p>";
+        echo "<p>Prix : $article->prix</p>";
       echo '</article>';
     echo"</a>";
   }

@@ -10,6 +10,7 @@ if ($panierVide){
 }else{
   echo '<section class="prixTotal">';
     echo "<p>Prix total : $prixTotal</p>";
+    echo"<a href=\"../controler/main.ctrl.php?panier=1&payer=1\">payer</a>";
   echo '</section>';
   echo '<section class="articlePanier">';
     foreach ($_SESSION['panier'] as $key => $articleEtQuat) {

@@ -1,4 +1,0 @@
-1|dorian@iut2.fr|dorian|admin
-2|camille@iut2.fr|camille|admin
-3|mamoune@iut2.fr|mamoune|admin
-4|test@test.fr|test|simple

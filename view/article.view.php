@@ -7,6 +7,7 @@ echo '<section class="article">';
     $img = $PATH.$article->image;
     echo "<h2>$article->libelle</h2>";
     echo "<p><img src='$img' /></p>";
+    echo "<p>$article->description</p>";
     echo "<p>Prix unitaire : $article->prix</p>";
     echo"<fieldset>";
       echo"<legend> Ajouter au panier </legend>";

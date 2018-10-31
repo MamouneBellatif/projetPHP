@@ -16,7 +16,7 @@
         // Constructeur chargé d'ouvrir la BD
         function __construct() {
             try {
-              $this->db = new PDO('sqlite:../data/db/lamoucherie.db'); //ne marche pas
+              $this->db = new PDO('sqlite:../data/db/lamoucherie.db');
             }
             catch (PDOException $e){
               die("erreur de connexion:".$e->getMessage());
@@ -129,10 +129,10 @@
         }
 
         //ajoute un utilisateur à la base de données avec un mot de passe hashé
-        function addUser($mail, $password){
+        function addUser($mail, $password, $nom, $prenom){
+          $req = $this->db->prepare("INSERT INTO user VALUES ((SELECT max(id)+1 FROM user), :email, :pass, :nom, :prenom, :statut)");
           $statut = 'simple';
-          $req = $this->db->prepare("INSERT INTO user VALUES ((SELECT max(id)+1 FROM user), :email, :pass, :statut)");
-          $param = array('email' => $mail, 'pass' => $password, 'statut' => $statut);
+          $param = array('email' => $mail, 'pass' => $password,'nom' => $nom , 'prenom' => $prenom, 'statut' => $statut);
           $req->execute($param);
           $result = $req->fetchAll(PDO::FETCH_CLASS, 'User');
         }

@@ -1,4 +1,8 @@
 <?php
+if(isset($_GET['payer'])){
+  $_SESSION['panier'] = array();
+  header('Location: main.ctrl.php');
+}
 
 $prixTotal = 0;
 

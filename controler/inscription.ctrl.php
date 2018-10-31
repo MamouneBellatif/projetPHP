@@ -25,7 +25,7 @@
       $goodPw = ( ($_GET["password"]) == ($_GET["passwordConfirm"]) );
       if ($goodPw){
         //on peut rajouter un hashage du MDP pour la sécurité avec password_hash()
-        $dao->addUser($_GET["inscription"], $_GET["passwordConfirm"]);
+        $dao->addUser($_GET["inscription"], $_GET["passwordConfirm"],$_GET["nom"],$_GET["prenom"]);
         //ajout du mail de session pour qu'il reste connecter durant toute la navigation sur le site
         $_SESSION['mail'] = $_GET["inscription"];
         $_SESSION['panier'] = array();

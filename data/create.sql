@@ -1,8 +1,8 @@
 CREATE TABLE article (
 	ref INTEGER PRIMARY KEY,
 	libelle TEXT,
-	categorie INTEGER,
 	description TEXT,
+	categorie INTEGER,
 	prix REAL,
 	image TEXT,
 	FOREIGN KEY(categorie) REFERENCES categorie(id)
@@ -17,7 +17,9 @@ CREATE TABLE categorie (
 
 CREATE TABLE user (
 	id INTEGER PRIMARY KEY,
-	mail TEXT UNIQUE
+	mail TEXT UNIQUE,
 	pass TEXT,
+	nom TEXT,
+	prenom TEXT,
 	statut TEXT check (statut in ('simple', 'admin'))
 );
