@@ -157,6 +157,14 @@
             return 0;
           }
         }
+        //on regarde si l'utilisateur existe dans la base de donnée
+        function getUser($mail){
+            $req = $this->db->prepare("SELECT * FROM user WHERE mail=?");
+            $req->execute(array($mail));
+            $result = $req->fetchAll(PDO::FETCH_CLASS, 'User');
+            return $result[0];
+
+        }
     }
 
     ?>

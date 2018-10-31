@@ -37,6 +37,8 @@ if (isset($_GET['inscription'])){
   include('inscription.ctrl.php');
 }else if(isset($_GET['panier'])){
   include('panier.ctrl.php');
+}else if(isset($_GET['infocompte'])){
+  include('infoCompte.ctrl.php');
 }else if(isset($_GET['refArticle'])){
   include('article.ctrl.php');
 }else{
