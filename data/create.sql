@@ -3,6 +3,7 @@ CREATE TABLE article (
 	libelle TEXT,
 	categorie INTEGER,
 	prix REAL,
+	nbAchat INTEGER,
 	image TEXT,
 	FOREIGN KEY(categorie) REFERENCES categorie(id)
 );
