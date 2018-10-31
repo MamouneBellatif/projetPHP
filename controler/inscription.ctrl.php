@@ -28,7 +28,7 @@
         $dao->addUser($_GET["inscription"], $_GET["passwordConfirm"]);
         //ajout du mail de session pour qu'il reste connecter durant toute la navigation sur le site
         $_SESSION['mail'] = $_GET["inscription"];
-
+        $_SESSION['panier'] = array();
         //$ajouter = true;
 
         header('Location: main.ctrl.php');

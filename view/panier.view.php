@@ -2,14 +2,16 @@
 include("../view/header.php");
 
 if ($panierVide){
-  echo '<div>';
-    echo "<p>Panier vide.</p>";
-  echo '</div>';
+  echo '<section class="panierVide">';
+    echo '<div>';
+      echo "<p>Panier vide</p>";
+    echo '</div>';
+  echo '</section>';
 }else{
-  echo '<section>';
+  echo '<section class="prixTotal">';
     echo "<p>Prix total : $prixTotal</p>";
   echo '</section>';
-  echo '<section>';
+  echo '<section class="articlePanier">';
     foreach ($_SESSION['panier'] as $key => $articleEtQuat) {
       $PATH = '../view/imgArticles/';
       $img = $PATH.$articleEtQuat[0]->image;
