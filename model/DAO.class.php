@@ -157,7 +157,8 @@
             return 0;
           }
         }
-        //on regarde si l'utilisateur existe dans la base de donnée
+        
+        //récupère toutes les infos sur un compte
         function getUser($mail){
             $req = $this->db->prepare("SELECT * FROM user WHERE mail=?");
             $req->execute(array($mail));
