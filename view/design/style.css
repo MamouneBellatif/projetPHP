@@ -311,3 +311,17 @@ section form input {
 	border: 4px solid black;
 	border-radius: 10px;
 }
+
+/**************************************************************
+* Affichage du service administration
+**************************************************************/
+.admin {
+	margin-top : 20px;
+}
+.admin p {
+	margin : 0px;
+}
+
+.admin fieldset {
+	margin : 0px 10px;
+}
