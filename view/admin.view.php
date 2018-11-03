@@ -82,7 +82,8 @@ include("../view/header.php");
           echo "<SELECT name=\"refSuppr\">";
             foreach ($listeUser as $key => $value) {
                 $mail = $value->mail;
-                echo"<OPTION>$mail";
+                $id = $value->id;
+                echo"<OPTION value=\"$id\">$mail";
             }
           echo "</SELECT>";
           echo "<input type=\"submit\" value=\"Valider\">";
