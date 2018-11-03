@@ -2,6 +2,7 @@
 if(isset($_GET['payer'])){
   foreach ($_SESSION['panier'] as $key => $value) {
     $article = $value[0];
+    $dao->ajoutAchat($article->ref);
   }
   $_SESSION['panier'] = array();
   header('Location: main.ctrl.php');

@@ -3,7 +3,7 @@
     require_once("../model/Categorie.class.php");
     require_once("../model/Article.class.php");
     require_once("../model/User.class.php");
-
+    require_once("../model/Quantachat.class.php");
     // Creation de l'unique objet DAO
     $dao = new DAO();
 
