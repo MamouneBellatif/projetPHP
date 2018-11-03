@@ -23,7 +23,7 @@
 
   //ajout d'un article
   if ( isset($_GET["libelle"]) && isset($_GET["description"]) && isset($_GET["prix"]) && isset($_GET["image"]) && isset($_GET["categorie"]) ){
-    addArticle($_GET["libelle"], $_GET["description"], $_GET["categorie"], $_GET["prix"], $_GET["image"]);
+    $dao->addArticle($_GET["libelle"], $_GET["description"], $_GET["categorie"], $_GET["prix"], $_GET["image"]);
     header('Location: main.ctrl.php?admin=1');
   }
 
