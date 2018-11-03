@@ -1,7 +1,7 @@
 <?php
 
 $article = $dao->getArticle($_GET['refArticle']);
-
+$cat = $_GET['cat'];
 //si nb présent alors c'est que l'utilisateur veut l'ajouter à son panier
 if(isset($_GET['nb'])){
   $aAjouterPanier = array( $dao->getArticle($_GET['refArticle']) ,$_GET['nb']);
