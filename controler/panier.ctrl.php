@@ -1,5 +1,8 @@
 <?php
 if(isset($_GET['payer'])){
+  foreach ($_SESSION['panier'] as $key => $value) {
+    $article = $value[0];
+  }
   $_SESSION['panier'] = array();
   header('Location: main.ctrl.php');
 }

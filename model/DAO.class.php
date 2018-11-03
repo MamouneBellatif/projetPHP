@@ -138,6 +138,11 @@
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
             return $result;
         }
+        function ajoutAchat($ref){
+          $req = "SELECT * FROM quantachat WHERE ref=$ref";
+          $descripteur = $this->db->query($req);
+          $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'quantachat');
+        }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///methode sur les catégories
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
