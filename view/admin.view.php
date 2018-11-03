@@ -3,11 +3,12 @@ include("../view/header.php");
   echo '<section class=\'admin\'>';
     echo"<fieldset>";
       echo"<legend> Information </legend>";
-        echo"<p>Vous pouvez voir la référence d'un article en vous rendant sur l'article (en tant qu'administrateur).</p>";
-        echo"<p>Liste des admins : </p>";
+        echo"<div><p>Vous pouvez voir la référence d'un article en vous rendant sur l'article (en tant qu'administrateur).</p></div>";
+        echo"<div><p>Liste des admins : </p>";
         foreach ($listeAdmin as $key => $value) {
-          echo"<p>    - $value->mail</p>";
+          echo"<p>- $value->mail</p>";
         }
+        echo"</div>";
     echo"</fieldset>";
   echo '</section>';
 

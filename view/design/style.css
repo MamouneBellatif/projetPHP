@@ -321,7 +321,9 @@ section form input {
 .admin p {
 	margin : 0px;
 }
-
+.admin div {
+	margin-top : 10px;
+}
 .admin fieldset {
 	margin : 0px 10px;
 }
