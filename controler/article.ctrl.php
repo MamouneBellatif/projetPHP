@@ -6,6 +6,7 @@ $article = $dao->getArticle($_GET['refArticle']);
 if(isset($_GET['nb'])){
   $aAjouterPanier = array( $dao->getArticle($_GET['refArticle']) ,$_GET['nb']);
   array_push($_SESSION['panier'], $aAjouterPanier);
+  header("Location: main.ctrl.php?cat=$cat");
 }
 
 include("../view/article.view.php");
