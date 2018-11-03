@@ -26,6 +26,6 @@ CREATE TABLE user (
 
 CREATE TABLE quantachat (
 	ref INTEGER PRIMARY KEY,
-	quantité INTEGER,
+	quantite INTEGER,
 	FOREIGN KEY(ref) REFERENCES article(ref)
 );

@@ -16,6 +16,8 @@ if (isset($_GET['ref'])){
   }elseif (isset($_GET['next'])){
     $articles = $dao->next($ref, $cat);
   }
+}else if ( $cat == 0){
+  $articles = $dao->getBestArticle();
 }else{
   $articles = $dao-> firstN($cat);
 }

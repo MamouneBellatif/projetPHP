@@ -4,13 +4,16 @@ include("../view/header.php");
 //affiche les boutons précédent/suivant
 //si le controler à verfier que c'était possible d'effectuer ces actions
 echo '<section class="parcourir">';
-  if ($okPrec){
+  if ($cat!=0 && $okPrec){
     $refFirst = $articles[0]->ref;
     echo "<a href=\"../controler/main.ctrl.php?pred=1&cat=$cat&ref=$refFirst\"><img src=\"../view/design/left-arrow.png\" alt=\"Précédents\"></a>";
   }
-  if ($okNext){
+  if ($cat!=0 && $okNext){
     $refEnd = end($articles)->ref;
     echo "<a href=\"../controler/main.ctrl.php?next=1&cat=$cat&ref=$refEnd\"><img src=\"../view/design/right-arrow.png\" alt=\"Suivants\"></a>";
+  }
+  if ($cat==0){
+    echo "<p>Top 10 des produits les plus vendus !</p>";
   }
 echo '</section>';
 
