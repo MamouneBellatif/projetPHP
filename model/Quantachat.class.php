@@ -1,9 +1,9 @@
 <?php
 
-    // Un article en vente
+    // Quantité d'achat d'un article -> nombre de fois commander
     class Quantachat {
         public $ref;       // Référence unique
-        public $quantité;
+        public $quantite;
     }
 
 ?>

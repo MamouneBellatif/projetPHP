@@ -113,7 +113,6 @@
         function addArticle($libelle, $description, $categorie, $prix, $image){
           $req = $this->db->prepare("INSERT INTO article VALUES ((SELECT max(ref)+1 FROM article), :libelle, :description, :categorie, :prix, :image)");
           $param = array('libelle' => $libelle, 'description' => $description,'categorie' => $categorie , 'prix' => $prix, 'image' => $image);
-          var_dump($param);
           $req->execute($param);
         }
 
@@ -141,7 +140,16 @@
         function ajoutAchat($ref){
           $req = "SELECT * FROM quantachat WHERE ref=$ref";
           $descripteur = $this->db->query($req);
-          $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'quantachat');
+          $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Quantachat');
+          if ($result == null){
+            $req = $this->db->prepare("INSERT INTO quantachat VALUES (:ref, :quant)");
+            $param = array('ref'=>$ref, 'quant' => '1');
+            $req->execute($param);
+          }else{
+            $newQuant = $result[0]->quantite + 1;
+            $req = "UPDATE quantachat SET quantite=$newQuant WHERE ref=$ref";
+            $descripteur = $this->db->query($req);
+          }
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///methode sur les catégories
