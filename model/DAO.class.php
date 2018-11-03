@@ -111,8 +111,9 @@
 
         //ajoute un article à la base de donnée
         function addArticle($libelle, $description, $categorie, $prix, $image){
-          $req = $this->db->prepare("INSERT INTO article VALUES ((SELECT max(id)+1 FROM user), :libelle, :description, :categorie, :prix, :image)");
+          $req = $this->db->prepare("INSERT INTO article VALUES ((SELECT max(ref)+1 FROM article), :libelle, :description, :categorie, :prix, :image)");
           $param = array('libelle' => $libelle, 'description' => $description,'categorie' => $categorie , 'prix' => $prix, 'image' => $image);
+          var_dump($param);
           $req->execute($param);
         }
 
