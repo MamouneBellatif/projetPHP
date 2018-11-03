@@ -9,6 +9,9 @@ echo '<section class="article">';
     echo "<p><img src='$img' /></p>";
     echo "<p>$article->description</p>";
     echo "<p>Prix unitaire : $article->prix</p>";
+    if(  $_SESSION['statut'] == 'admin'){
+      echo "<p>Référence : $article->ref</p>";
+    }
     echo"<fieldset>";
       echo"<legend> Ajouter au panier </legend>";
       if ($userConnected){

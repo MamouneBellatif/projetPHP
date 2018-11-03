@@ -18,8 +18,6 @@ if (isset($_GET['ref'])){
   }
 }else{
   $articles = $dao-> firstN($cat);
-
-
 }
 
 //permet à la vue de savoir si l'utilisateur doit pouvoir choisir de voir

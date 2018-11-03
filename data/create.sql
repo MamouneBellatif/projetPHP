@@ -23,3 +23,9 @@ CREATE TABLE user (
 	prenom TEXT,
 	statut TEXT check (statut in ('simple', 'admin'))
 );
+
+CREATE TABLE quantachat (
+	ref INTEGER PRIMARY KEY,
+	quantité INTEGER,
+	FOREIGN KEY(ref) REFERENCES article(ref)
+);

@@ -23,30 +23,12 @@
             }
         }
 
-        function estUneCatPere(int $cat) : int {
-          $req = "SELECT id FROM categorie WHERE id=$cat AND pere=id";
-          $descripteur = $this->db->query($req);
-          $estUneCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
-          return sizeof($estUneCatPere);
-        }
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///methode sur les articles
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // Accès à toutes les catégories
-        // Retourne une table d'objets de type Categorie
-        function getAllCat() : array {
-            $catPere = "SELECT * FROM categorie WHERE id=pere";
-            $descripteur = $this->db->query($catPere);
-            $resCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Categorie');
-            $resultat = array();
-            foreach ($resCatPere as $key => $value) {
-              $sousCatPere = "SELECT * FROM categorie WHERE pere=$value->id AND id!=pere";
-              $descripteur = $this->db->query($sousCatPere);
-              $resSousCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Categorie');
-              array_unshift($resSousCatPere, $value);
-              $resultat[] = $resSousCatPere;
-            }
-            return $resultat;
-        }
-
+        //récupère un article à partir de sa référence
+        //retourne l'article
         function getArticle( int $ref){
           $req = "SELECT * FROM article WHERE ref=$ref";
           $descripteur = $this->db->query($req);
@@ -103,7 +85,6 @@
               }
             }
 
-
             $descripteur = $this->db->query($req);
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
             return $result;
@@ -128,13 +109,72 @@
             return array_reverse($result);
         }
 
-        //ajoute un utilisateur à la base de données avec un mot de passe hashé
-        function addUser($mail, $password, $nom, $prenom){
+        //ajoute un article à la base de donnée
+        function addArticle($libelle, $description, $categorie, $prix, $image){
+          $req = $this->db->prepare("INSERT INTO article VALUES ((SELECT max(id)+1 FROM user), :libelle, :description, :categorie, :prix, :image)");
+          $param = array('libelle' => $libelle, 'description' => $description,'categorie' => $categorie , 'prix' => $prix, 'image' => $image);
+          $req->execute($param);
+        }
+
+        //Supprime un article selon sa référence
+        function removeArticle($ref){
+          $req = $this->db->prepare("DELETE FROM article WHERE ref=?");
+          $req->execute(array($ref));
+        }
+
+        //Récupére tous les articles
+        function getAllArticle(){
+            $req = "SELECT * FROM article";
+            $descripteur = $this->db->query($req);
+            $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
+            return $result;
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///methode sur les catégories
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //on regarde si une catégorie est une catégorie père
+        function estUneCatPere(int $cat) : int {
+          $req = "SELECT id FROM categorie WHERE id=$cat AND pere=id";
+          $descripteur = $this->db->query($req);
+          $estUneCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
+          return sizeof($estUneCatPere);
+        }
+
+        // Accès à toutes les catégories
+        // Retourne une table d'objets de type Categorie
+        function getAllCat() : array {
+            $catPere = "SELECT * FROM categorie WHERE id=pere";
+            $descripteur = $this->db->query($catPere);
+            $resCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Categorie');
+            $resultat = array();
+            foreach ($resCatPere as $key => $value) {
+              $sousCatPere = "SELECT * FROM categorie WHERE pere=$value->id AND id!=pere";
+              $descripteur = $this->db->query($sousCatPere);
+              $resSousCatPere = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Categorie');
+              array_unshift($resSousCatPere, $value);
+              $resultat[] = $resSousCatPere;
+            }
+            return $resultat;
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///methode sur les utilisateurs
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //ajoute un utilisateur à la base de données
+        function addUser($mail, $password, $nom, $prenom, $statut){
           $req = $this->db->prepare("INSERT INTO user VALUES ((SELECT max(id)+1 FROM user), :email, :pass, :nom, :prenom, :statut)");
-          $statut = 'simple';
           $param = array('email' => $mail, 'pass' => $password,'nom' => $nom , 'prenom' => $prenom, 'statut' => $statut);
           $req->execute($param);
-          $result = $req->fetchAll(PDO::FETCH_CLASS, 'User');
+          //$result = $req->fetchAll(PDO::FETCH_CLASS, 'User');
+        }
+
+        //Supprime un utilisateur selon son adresse mail
+        function removeUser($mail){
+          $req = $this->db->prepare("DELETE FROM user WHERE mail=?");
+          $req->execute(array($mail));
         }
 
         //on vérifie si l'adresse mail est dans la base de données
@@ -157,14 +197,20 @@
             return 0;
           }
         }
-        
+
         //récupère toutes les infos sur un compte
         function getUser($mail){
             $req = $this->db->prepare("SELECT * FROM user WHERE mail=?");
             $req->execute(array($mail));
             $result = $req->fetchAll(PDO::FETCH_CLASS, 'User');
             return $result[0];
+        }
 
+        function getAllUser(){
+            $req = "SELECT * FROM user";
+            $descripteur = $this->db->query($req);
+            $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'User');
+            return $result;
         }
     }
 

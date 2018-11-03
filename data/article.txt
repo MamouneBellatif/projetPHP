@@ -1,48 +1,60 @@
 1|Borislav|Origine : Russie - Spécialité : combat/soutiens|11|150|1.jpg
-2|Ignatiev|Origine : Russie - Spécialité : combat/soutiens|11|150|2.jpg
-3|Medvedev|Origine : Russie - Spécialité : combat/soutiens|11|150|3.jpg
-4|Oleg|Origine : Pologne - Spécialité : combat/dégat|12|150|4.jpg
-5|Bevis|Origine : Pologne - Spécialité : combat/dégat|12|150|5.jpg
-6|Cheney|Origine : Pologne - Spécialité : combat/dégat|12|150|6.jpg
-7|Isaac|Origine : Grèce - Spécialité : combat/tank|13|150|7.jpg
-8|Lebel|Origine : France - Spécialité : combat/tank|13|150|8.jpg
-9|Bazin|Origine : Allemagne - Spécialité : combat/tank|13|150|9.jpg
-10|Bazhenov|Origine : Allemagne - Spécialité : combat/tank|13|150|10.jpg
-11|Cloridan|Origine : Suisse - Spécialité : compagnie|2|70|11.jpg
-12|Vachel|Origine : Suisse - Spécialité : compagnie|2|70|12.jpg
-13|Tyson|Origine : Suisse - Spécialité : compagnie|2|70|13.jpg
-14|Tarzuc|Origine : Suisse - Spécialité : compagnie|2|70|14.jpg
-15|Saville|Origine : Suisse - Spécialité : compagnie|2|70|15.jpg
-16|Mazuret|Origine : Suisse - Spécialité : compagnie|2|70|16.jpg
-17|Harbin|Origine : Suisse - Spécialité : compagnie|2|70|17.jpg
-18|Ferland|Origine : Suisse - Spécialité : compagnie|2|70|18.jpg
-19|Platt|Origine : Suisse - Spécialité : compagnie|2|70|19.jpg
-20|Artus|Origine : Suisse - Spécialité : compagnie|2|70|20.jpg
-21|Langley|Origine : Anglaise - Spécialité : aveugle|31|200|21.jpg
-22|Zacharie|Origine : Marocaine - Spécialité : aveugle|31|200|22.jpg
-23|Goddu|Origine : Anglais - Spécialité : aveugle|31|200|23.jpg
-24|Querry|Origine : Anglais - Spécialité : aveugle|31|200|24.jpg
-25|Deckert|Origine : France - Spécialité : aveugle|31|200|25.jpg
-26|Gary|Origine : France - Spécialité : ménage|32|200|26.jpg
-27|Brochu|Origine : France - Spécialité : vaisselle|32|200|27.jpg
-28|Ganelon|Origine : France - Spécialité : cuisine|32|200|28.jpg
-29|Pitre|Origine : France - Spécialité : musique|32|20|29.jpg
-30|Pibette|Origine : Belgique - Spécialité : brasseur de bière|32|200|30.jpg
-31|Armen|Origine : Soudan - Vers des champs|41|70|31.jpg
-32|Kuzma|Origine : Arabie Saoudite - Vers de viande|41|70|32.jpg
-33|Lanoie|Origine : Arabie Saoudite - Vers à merde|41|70|33.jpg
-34|Abramovich|Origine : Arabie Saoudite - Vers de viande|41|70|34.jpg
-35|Maslow|Origine : Arabie Saoudite - Vers de viande|41|70|35.jpg
-36|Laisse|Origine : Chine|42|10|36.jpg
-37|Harnais|Origine : Chine|42|20|37.jpg
-38|Collier|Origine : Chine|42|10|38.jpg
-39|Sac de frappe|Origine : Thailand|42|40|39.jpg
-40|Cibles|Origine : Inde|42|5|40.jpg
-41|Peluches|Origine : Thailand|5|500|40.jpg
-42|Balle|Origine : Chine|42|5|40.jpg
-43|Sabre Lazer|Origine : France|42|1000|40.jpg
-44|Magnum|Origine : Inconnu|42|500|40.jpg
-45|Poing américain|Origine : Inconnu|42|120|40.jpg
-46|Fusil mitrailleur|Origine : Inconnu|42|600|40.jpg
-47|Fusil sniper|Origine : Inconnu|42|850|40.jpg
-48|Frisbee|Origine : Chine|42|850|40.jpg
+2|Ignatiev|Origine : Russie - Spécialité : combat/soutiens|11|150|1.jpg
+3|Medvedev|Origine : Russie - Spécialité : combat/soutiens|11|150|1.jpg
+4|Oleg|Origine : Pologne - Spécialité : combat/dégat|12|150|1.jpg
+5|Bevis|Origine : Pologne - Spécialité : combat/dégat|12|150|1.jpg
+6|Cheney|Origine : Pologne - Spécialité : combat/dégat|12|150|1.jpg
+7|Isaac|Origine : Grèce - Spécialité : combat/tank|13|150|1.jpg
+8|Lebel|Origine : France - Spécialité : combat/tank|13|150|1.jpg
+9|Bazin|Origine : Allemagne - Spécialité : combat/tank|13|150|1.jpg
+10|Bazhenov|Origine : Allemagne - Spécialité : combat/tank|13|150|1.jpg
+11|Cloridan|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
+12|Vachel|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
+13|Tyson|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
+14|Tarzuc|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
+15|Saville|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
+16|Mazuret|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
+17|Harbin|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
+18|Ferland|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
+19|Platt|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
+20|Artus|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
+21|Langley|Origine : Anglaise - Spécialité : aveugle|31|200|1.jpg
+22|Zacharie|Origine : Marocaine - Spécialité : aveugle|31|200|1.jpg
+23|Goddu|Origine : Anglaise - Spécialité : aveugle|31|200|1.jpg
+24|Querry|Origine : Anglaise - Spécialité : aveugle|31|200|1.jpg
+25|Deckert|Origine : France - Spécialité : aveugle|31|200|1.jpg
+26|Gary|Origine : France - Spécialité : ménage|32|200|1.jpg
+27|Brochu|Origine : France - Spécialité : vaisselle|32|200|1.jpg
+28|Ganelon|Origine : France - Spécialité : cuisine|32|200|1.jpg
+29|Pitre|Origine : France - Spécialité : musique|32|20|1.jpg
+30|Pibette|Origine : Belgique - Spécialité : brasseur de bière|32|200|1.jpg
+31|Armen|Origine : Soudan - Vers des champs|41|70|1.jpg
+32|Kuzma|Origine : Arabie Saoudite - Vers de viande|41|70|1.jpg
+33|Lanoie|Origine : Arabie Saoudite - Vers à merde|41|70|1.jpg
+34|Abramovich|Origine : Arabie Saoudite - Vers de viande|41|70|1.jpg
+35|Maslow|Origine : Arabie Saoudite - Vers de viande|41|70|1.jpg
+36|Laisse|Origine : Chine|42|10|laisse.jpg
+37|Harnais|Origine : Chine|42|20|harnais.jpg
+38|Collier|Origine : Chine|42|10|collier.jpg
+39|Sac de frappe|Origine : Thailand|42|40|sac-de-frappe.jpg
+40|Cibles|Origine : Inde|42|5|cible.jpg
+41|Peluches|Origine : Thailand|5|500|peluche.jpg
+42|Balle|Origine : Chine|42|5|balle.jpg
+43|Sabre Lazer|Origine : France|42|1000|sabre-lazer.jpg
+44|Magnum|Origine : Inconnu|42|500|censure.png
+45|Poing américain|Origine : Inconnu|42|120|censure.png
+46|Fusil mitrailleur|Origine : Inconnu|42|600|censure.png
+47|Fusil sniper|Origine : Inconnu|42|850|censure.png
+48|Frisbee|Origine : Chine|42|850|frisbee.jpg
+49||Origine : Marocaine - Spécialité : ménage|32|200|1.jpg
+50||Origine : Marocaine - Spécialité : vaisselle|32|200|1.jpg
+51|Mamoune|Origine : Marocaine - Spécialité : cuisine|32|200|1.jpg
+52||Origine : Marocaine - Spécialité : musique|32|20|1.jpg
+53|Burgess|Origine : Anglaise - Spécialité : ménage|32|200|1.jpg
+54|Ruby|Origine : Anglaise - Spécialité : vaisselle|32|200|1.jpg
+55|Kent|Origine : Anglaise - Spécialité : cuisine|32|200|1.jpg
+56|Wheeler|Origine : Anglaise - Spécialité : musique|32|20|1.jpg
+57|五郎丸 優月|Origine : Japonaise - Spécialité : ménage|32|200|1.jpg
+58|福与 誠|Origine : Japonaise - Spécialité : vaisselle|32|200|1.jpg
+59|浜川 実|Origine : Japonaise - Spécialité : cuisine|32|200|1.jpg
+60|朝野 克己|Origine : Japonaise - Spécialité : musique|32|20|1.jpg

@@ -25,6 +25,9 @@
               echo "<ul>";
                 echo "<li><a href=\"../controler/main.ctrl.php?panier=1\">Mon panier</a></li>";
                 echo "<li><a href=\"../controler/main.ctrl.php?infocompte=1\">Information compte</a></li>";
+                if(  $_SESSION['statut'] == 'admin'){
+                  echo "<li><a href=\"../controler/main.ctrl.php?admin=1\">Administration</a></li>";
+                }
                 echo "<li><a href=\"../controler/main.ctrl.php?deconnexion=1\">Déconnexion</a></li>";
               echo "</ul>";
             echo "</li>";
