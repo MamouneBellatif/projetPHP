@@ -24,7 +24,7 @@ echo '<section class="articles">';
   $PATH = '../view/imgArticles/';
   foreach ($articles as $key => $article) {
     $img = $PATH.$article->image;
-    echo"<a href=\"../controler/main.ctrl.php?refArticle=$article->ref\">";
+    echo"<a href=\"../controler/main.ctrl.php?cat=$cat&refArticle=$article->ref\">";
       echo '<article>';
         echo "<p>$article->libelle</p>";
         echo "<p><img src='$img' /></p>";
