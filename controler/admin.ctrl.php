@@ -11,8 +11,8 @@
   }
 
   //suppression d'un utilisateur
-  if ( isset($_GET['mailSuppr']) ){
-    $dao->removeUser($_GET['mailSuppr']);
+  if ( isset($_GET['idSuppr']) ){
+    $dao->removeUser($_GET['idSuppr']);
     header('Location: main.ctrl.php?admin=1');
   }
 

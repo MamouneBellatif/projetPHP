@@ -193,8 +193,8 @@
         }
 
         //Supprime un utilisateur selon son adresse mail
-        function removeUser($mail){
-          $req = "DELETE FROM user WHERE mail=$mail";
+        function removeUser($id){
+          $req = "DELETE FROM user WHERE id=$id";
           $descripteur = $this->db->query($req);
         }
 

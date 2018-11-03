@@ -79,7 +79,7 @@ include("../view/header.php");
         echo"<form>";
           echo "<input type=\"hidden\" name=\"admin\" value=\"1\">";
           echo"<p>Mail d'un utilisateur :</p>";
-          echo "<SELECT name=\"refSuppr\">";
+          echo "<SELECT name=\"idSuppr\">";
             foreach ($listeUser as $key => $value) {
                 $mail = $value->mail;
                 $id = $value->id;
