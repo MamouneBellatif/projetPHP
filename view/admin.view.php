@@ -73,8 +73,7 @@ include("../view/header.php");
       echo"<legend> Supprimer un utlisateur </legend>";
         echo"<form>";
           echo "<input type=\"hidden\" name=\"admin\" value=\"1\">";
-          //echo "<input type=\"email\" name=\"mailSuppr\" placeholder=\"mail de l'utilisateur\">";
-          echo"<p>Mail de l'utilisateur :</p>";
+          echo"<p>Mail d'un utilisateur :</p>";
           echo "<SELECT name=\"refSuppr\">";
             foreach ($listeUser as $key => $value) {
                 $mail = $value->mail;
