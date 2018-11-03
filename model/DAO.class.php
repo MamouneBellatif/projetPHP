@@ -215,7 +215,7 @@
         }
 
         function getAllUser(){
-            $req = "SELECT * FROM user";
+            $req = "SELECT * FROM user WHERE statut='simple'";
             $descripteur = $this->db->query($req);
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'User');
             return $result;
