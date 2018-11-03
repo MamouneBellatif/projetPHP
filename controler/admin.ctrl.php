@@ -2,6 +2,7 @@
 
   $listeArticle = $dao->getAllArticle();
   $listeUser = $dao->getAlluSER();
+  $listeAdmin = $dao->getAllAdmin();
 
   //ajout d'un utilisateur
   if (isset($_GET["mail"]) && isset($_GET["pass"]) && isset($_GET["name"]) && isset($_GET["prenom"]) && isset($_GET["statut"])){

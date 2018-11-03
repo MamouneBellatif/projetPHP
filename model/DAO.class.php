@@ -220,6 +220,13 @@
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'User');
             return $result;
         }
+
+        function getAllAdmin(){
+            $req = "SELECT * FROM user WHERE statut='admin'";
+            $descripteur = $this->db->query($req);
+            $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'User');
+            return $result;
+        }
     }
 
     ?>
