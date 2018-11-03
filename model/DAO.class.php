@@ -132,7 +132,7 @@
 
         //récupère les 10 articles les plus vendus
         function getBestArticle(){
-            $req = "SELECT * FROM article WHERE ref IN (SELECT ref FROM quantachat ORDER BY quantite DESC LIMIT 10)";
+            $req = "SELECT * FROM article,quantachat WHERE article.ref=quantachat.ref ORDER BY quantite DESC LIMIT 10";
             $descripteur = $this->db->query($req);
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Article');
             return $result;
