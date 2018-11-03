@@ -16,6 +16,7 @@ echo '<section class="article">';
       echo"<legend> Ajouter au panier </legend>";
       if ($userConnected){
         echo "<form action=\"../controler/main.ctrl.php\" method=\"get\">";
+          echo "<input type=\"hidden\" name=\"cat\" value=\"$cat\">";
           echo "<input type=\"hidden\" name=\"refArticle\" value=\"$article->ref\">";
           echo "<input type=\"number\" name=\"nb\" step=\"1\" value=\"1\" min=\"1\" max=\"50\">";
           echo "<input type=\"submit\" value=\"Valider\">";
