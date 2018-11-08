@@ -1,13 +1,13 @@
-1|Borislav|Origine : Russie - Spécialité : combat/soutiens|11|150|1.jpg
-2|Ignatiev|Origine : Russie - Spécialité : combat/soutiens|11|150|1.jpg
-3|Medvedev|Origine : Russie - Spécialité : combat/soutiens|11|150|1.jpg
-4|Oleg|Origine : Pologne - Spécialité : combat/dégat|12|150|1.jpg
-5|Bevis|Origine : Pologne - Spécialité : combat/dégat|12|150|1.jpg
-6|Cheney|Origine : Pologne - Spécialité : combat/dégat|12|150|1.jpg
-7|Isaac|Origine : Grèce - Spécialité : combat/tank|13|150|1.jpg
-8|Lebel|Origine : France - Spécialité : combat/tank|13|150|1.jpg
-9|Bazin|Origine : Allemagne - Spécialité : combat/tank|13|150|1.jpg
-10|Bazhenov|Origine : Allemagne - Spécialité : combat/tank|13|150|1.jpg
+1|Borislav|Origine : Russie - Spécialité : attaque|11|150|1.jpg
+2|Ignatiev|Origine : Russie - Spécialité : attaque|11|150|1.jpg
+3|Medvedev|Origine : Russie - Spécialité : attaque|11|150|1.jpg
+4|Oleg|Origine : Pologne - Spécialité : attaque|11|150|1.jpg
+5|Bevis|Origine : Pologne - Spécialité : attaque|11|150|1.jpg
+6|Cheney|Origine : Pologne - Spécialité : defense|12|150|1.jpg
+7|Isaac|Origine : Grèce - Spécialité : defense|12|150|1.jpg
+8|Lebel|Origine : France - Spécialité : defense|12|150|1.jpg
+9|Bazin|Origine : Allemagne - Spécialité : defense|12|150|1.jpg
+10|Bazhenov|Origine : Allemagne - Spécialité : defense|12|150|1.jpg
 11|Cloridan|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
 12|Vachel|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
 13|Tyson|Origine : Suisse - Spécialité : compagnie|2|70|1.jpg
@@ -41,20 +41,17 @@
 41|Peluches|Origine : Thailand|5|500|peluche.jpg
 42|Balle|Origine : Chine|42|5|balle.jpg
 43|Sabre Lazer|Origine : France|42|1000|sabre-lazer.jpg
-44|Magnum|Origine : Inconnu|42|500|censure.png
-45|Poing américain|Origine : Inconnu|42|120|censure.png
-46|Fusil mitrailleur|Origine : Inconnu|42|600|censure.png
-47|Fusil sniper|Origine : Inconnu|42|850|censure.png
-48|Frisbee|Origine : Chine|42|850|frisbee.jpg
-49||Origine : Marocaine - Spécialité : ménage|32|200|1.jpg
-50||Origine : Marocaine - Spécialité : vaisselle|32|200|1.jpg
-51|Mamoune|Origine : Marocaine - Spécialité : cuisine|32|200|1.jpg
-52||Origine : Marocaine - Spécialité : musique|32|20|1.jpg
-53|Burgess|Origine : Anglaise - Spécialité : ménage|32|200|1.jpg
-54|Ruby|Origine : Anglaise - Spécialité : vaisselle|32|200|1.jpg
-55|Kent|Origine : Anglaise - Spécialité : cuisine|32|200|1.jpg
-56|Wheeler|Origine : Anglaise - Spécialité : musique|32|20|1.jpg
-57|五郎丸 優月|Origine : Japonaise - Spécialité : ménage|32|200|1.jpg
-58|福与 誠|Origine : Japonaise - Spécialité : vaisselle|32|200|1.jpg
-59|浜川 実|Origine : Japonaise - Spécialité : cuisine|32|200|1.jpg
-60|朝野 克己|Origine : Japonaise - Spécialité : musique|32|20|1.jpg
+44|Lance pierre|Origine : Inconnu|42|120|censure.png
+45|Frisbee|Origine : Chine|42|850|frisbee.jpg
+46||Origine : Marocaine - Spécialité : ménage|32|200|1.jpg
+47||Origine : Marocaine - Spécialité : vaisselle|32|200|1.jpg
+48|Mamoune|Origine : Marocaine - Spécialité : cuisine|32|200|1.jpg
+49||Origine : Marocaine - Spécialité : musique|32|20|1.jpg
+50|Burgess|Origine : Anglaise - Spécialité : ménage|32|200|1.jpg
+51|Ruby|Origine : Anglaise - Spécialité : vaisselle|32|200|1.jpg
+52|Kent|Origine : Anglaise - Spécialité : cuisine|32|200|1.jpg
+53|Wheeler|Origine : Anglaise - Spécialité : musique|32|20|1.jpg
+54|五郎丸 優月|Origine : Japonaise - Spécialité : ménage|32|200|1.jpg
+55|福与 誠|Origine : Japonaise - Spécialité : vaisselle|32|200|1.jpg
+56|浜川 実|Origine : Japonaise - Spécialité : cuisine|32|200|1.jpg
+57|朝野 克己|Origine : Japonaise - Spécialité : musique|32|20|1.jpg

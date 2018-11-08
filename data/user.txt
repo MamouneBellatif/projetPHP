@@ -1,4 +1,5 @@
 1|dorian@iut2.fr|dorian|baret|dorian|admin
 2|camille@iut2.fr|camille|vacher|camille|admin
 3|mamoune@iut2.fr|mamoune|bellatif|mamoune|admin
-4|test@test.fr|test|test|test|simple
+4|sylvie.pesty@iut2.fr|sylvie|pesty|sylvie|admin
+5|test@test.fr|test|test|test|simple

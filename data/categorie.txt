@@ -2,9 +2,8 @@
 2|compagnie|2
 3|assistance|3
 4|autre|4
-11|soutien|1
-12|degat|1
-13|tank|1
+11|attaque|1
+12|defense|1
 31|handicape|3
 32|domestique|3
 41|vers|4
