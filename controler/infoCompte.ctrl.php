@@ -5,7 +5,9 @@
     $badMail = $dao->verifMail($_GET["modifMail"]);
     if (!$badMail){
       $dao->modifEmail($_GET['modifMail'], $_GET['id']);
-      $_SESSION['mail'] = $_GET['modifMail'];
+      if(!isset($_GET['mailCompte'])){
+        $_SESSION['mail'] = $_GET['modifMail'];
+      }
     }
   }else if(isset($_GET['modifNom']) && isset($_GET['id'])){
     $dao->modifNom($_GET['modifNom'], $_GET['id']);
@@ -29,7 +31,14 @@
     }
   }
 
-  $currentUser = $dao->getUser($_SESSION['mail']);
+  if (isset($_GET['mailCompte'])){
+    $user = $dao->getUser($_GET['mailCompte']);
+    $autre = 1;
+  }else{
+    $currentUser = $dao->getUser($_SESSION['mail']);
+    $autre = 0;
+  }
+
 
   include('../view/infoCompte.view.php');
  ?>

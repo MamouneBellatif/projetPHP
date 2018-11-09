@@ -9,11 +9,13 @@
     $dao->addUser($_GET["mail"], $_GET["pass"],$_GET["name"],$_GET["prenom"], $_GET["statut"]);
     header('Location: main.ctrl.php?admin=1');
   }
-
+  //info User
+  /*if (isset($_GET['idCompte'])){
+    header("Location: main.ctrl.php?infocompte=1&idCompte=$_GET['idCompte']");
+  }*/
   //suppression d'un utilisateur
   if ( isset($_GET['idSuppr']) ){
     $dao->removeUser($_GET['idSuppr']);
-    header('Location: main.ctrl.php?admin=1');
   }
 
   //suppression d'un article
