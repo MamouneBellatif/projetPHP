@@ -240,6 +240,26 @@
             $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'User');
             return $result;
         }
+
+        function modifEmail(string $mail, int $id){
+          $req = $this->db->prepare("UPDATE user SET mail=:mail WHERE id=:id");
+          $req->execute(array('mail'=>$mail, 'id'=>$id));
+        }
+
+        function modifNom(string $nom, int $id){
+          $req = $this->db->prepare("UPDATE user SET nom=:nom WHERE id=:id");
+          $req->execute(array('nom'=>$nom, 'id'=>$id));
+        }
+
+        function modifPrenom(string $prenom, int $id){
+          $req = $this->db->prepare("UPDATE user SET prenom=:prenom WHERE id=:id");
+          $req->execute(array('prenom'=>$prenom, 'id'=>$id));
+        }
+
+        function modifMdp(string $pass, int $id){
+          $req = $this->db->prepare("UPDATE user SET pass=:pass WHERE id=:id");
+          $req->execute(array('pass'=>$pass, 'id'=>$id));
+        }
     }
 
     ?>
