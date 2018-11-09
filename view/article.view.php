@@ -53,6 +53,11 @@ if(  isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin'){
           echo "<td><a href=\"../controler/main.ctrl.php?cat=$article->categorie&refArticle=$article->ref&modif=prix\">Modifier</a></td>";
         echo "</tr>";
         echo "<tr>";
+          echo "<td>Catégorie :</td>";
+          echo "<td>$article->categorie</td>";
+          echo "<td><a href=\"../controler/main.ctrl.php?cat=$article->categorie&refArticle=$article->ref&modif=cat\">Modifier</a></td>";
+        echo "</tr>";
+        echo "<tr>";
           echo "<td>Référence :</td>";
           echo "<td>$article->ref</td>";
         echo "</tr>";
@@ -91,6 +96,28 @@ echo '<section>';
         echo "<input type=\"hidden\" name=\"cat\" value=\"$article->categorie\">";
         echo "<input type=\"hidden\" name=\"refArticle\" value=\"$article->ref\">";
         echo "<input type=\"number\" name=\"modifPrix\" min=0 placeholder=\"prix\">";
+        echo "<input type=\"submit\" value=\"Valider\">";
+      echo "</form>";
+    }else if ($modification == 'cat'){
+      echo "<form>";
+        echo "<input type=\"hidden\" name=\"cat\" value=\"$article->categorie\">";
+        echo "<input type=\"hidden\" name=\"refArticle\" value=\"$article->ref\">";
+        echo "<SELECT name=\"modifCat\">";
+          foreach ($listeCategorie as $key => $value) {
+            if (sizeof($value)>1){
+              $numCatPère = $value[0]->id;
+                for ($i = 1; $i<sizeof($value); $i++){
+                  $sousCat = $value[$i]->nom;
+                  $numSousCat = $value[$i]->id;
+                  echo"<OPTION value=\"$numSousCat\">$sousCat";
+                }
+            }else{
+              $catPere = $value[0]->nom;
+              $numCat = $value[0]->id;
+              echo"<OPTION value=\"$numCat\">$catPere";;
+            }
+          }
+        echo "</SELECT>";
         echo "<input type=\"submit\" value=\"Valider\">";
       echo "</form>";
     }

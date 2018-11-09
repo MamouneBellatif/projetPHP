@@ -118,6 +118,13 @@
 
         //Supprime un article selon sa référence
         function removeArticle($ref){
+          $req = "SELECT * FROM quantachat WHERE ref=$ref";
+          $descripteur = $this->db->query($req);
+          $result = $descripteur->fetchAll(PDO::FETCH_CLASS, 'Quantachat');
+          if ($result != null){
+            $req = $this->db->prepare("DELETE FROM Quantachat WHERE ref=?");
+            $req->execute(array($ref));
+          }
           $req = $this->db->prepare("DELETE FROM article WHERE ref=?");
           $req->execute(array($ref));
         }
@@ -172,6 +179,10 @@
           $req->execute(array('ref'=>$ref, 'prix'=>$prix));
         }
 
+        function modifCat($ref, $cat){
+          $req = $this->db->prepare("UPDATE article SET categorie=:cat WHERE ref=:ref");
+          $req->execute(array('ref'=>$ref, 'cat'=>$cat));
+        }
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///methode sur les catégories
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

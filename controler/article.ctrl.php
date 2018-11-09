@@ -2,8 +2,6 @@
 
 
 $ref = $_GET['refArticle'];
-
-
 $cat = $_GET['cat'];
 //si nb présent alors c'est que l'utilisateur veut l'ajouter à son panier
 if(isset($_GET['nb'])){
@@ -20,7 +18,10 @@ if (isset($_GET['modifLibelle'])){
   $dao->modifImg($ref,$_GET['modifImg'], $_GET['id']);
 }else if(isset($_GET['modifPrix'])){
   $dao->modifPrix($ref,$_GET['modifPrix']);
+}else if(isset($_GET['modifCat'])){
+  $dao->modifCat($ref,$_GET['modifCat']);
 }
+
 
 if(isset($_GET['modif'])){
   if ($_GET['modif']=='libelle'){
@@ -30,6 +31,8 @@ if(isset($_GET['modif'])){
   }else if($_GET['modif']=='image'){
     $modification = $_GET['modif'];
   }else if($_GET['modif']=='prix'){
+    $modification = $_GET['modif'];
+  }else if($_GET['modif']=='cat'){
     $modification = $_GET['modif'];
   }
 }
