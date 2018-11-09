@@ -151,6 +151,27 @@
             $descripteur = $this->db->query($req);
           }
         }
+
+        function modifLibelle(int $ref, string $lib){
+          $req = $this->db->prepare("UPDATE article SET libelle=:libelle WHERE ref=:ref");
+          $req->execute(array('ref'=>$ref, 'libelle'=>$lib));
+        }
+
+        function modifDesc(int $ref, string $desc){
+          $req = $this->db->prepare("UPDATE article SET description=:description WHERE ref=:ref");
+          $req->execute(array('ref'=>$ref, 'description'=>$desc));
+        }
+
+        function modifImg(int $ref, string $img){
+          $req = $this->db->prepare("UPDATE article SET image=:image WHERE ref=:ref");
+          $req->execute(array('ref'=>$ref, 'image'=>$img));
+        }
+
+        function modifPrix(int $ref, float $prix){
+          $req = $this->db->prepare("UPDATE article SET prix=:prix WHERE ref=:ref");
+          $req->execute(array('ref'=>$ref, 'prix'=>$prix));
+        }
+
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///methode sur les catégories
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

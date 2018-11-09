@@ -9,19 +9,27 @@
     $dao->addUser($_GET["mail"], $_GET["pass"],$_GET["name"],$_GET["prenom"], $_GET["statut"]);
     header('Location: main.ctrl.php?admin=1');
   }
-  //info User
-  /*if (isset($_GET['idCompte'])){
-    header("Location: main.ctrl.php?infocompte=1&idCompte=$_GET['idCompte']");
-  }*/
+  //modif utilisateur
+  if (isset($_GET['mailCompte'])){
+    $mail = $_GET['mailCompte'];
+    header("Location: main.ctrl.php?infocompte=1&mailCompte=$mail");
+  }
   //suppression d'un utilisateur
   if ( isset($_GET['idSuppr']) ){
     $dao->removeUser($_GET['idSuppr']);
+    header('Location: main.ctrl.php?admin=1');
   }
 
   //suppression d'un article
   if ( isset($_GET['refSuppr']) ){
     $dao->removeArticle($_GET['refSuppr']);
     header('Location: main.ctrl.php?admin=1');
+  }
+
+  //modif d'un Article
+  if (isset($_GET["refA"])){
+    $article = $dao->getArticle($_GET['refA']);
+    header("Location: main.ctrl.php?cat=$article->categorie&refArticle=$article->ref");
   }
 
   //ajout d'un article

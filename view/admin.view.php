@@ -43,6 +43,21 @@ include("../view/header.php");
     echo"</fieldset>";
 
     echo"<fieldset>";
+      echo"<legend> Modifier un article </legend>";
+        echo"<form>";
+          echo "<input type=\"hidden\" name=\"admin\" value=\"1\">";
+          echo"<p>Référence de l'article :</p>";
+          echo "<SELECT name=\"refA\">";
+            foreach ($listeArticle as $key => $value) {
+                $ref = $value->ref;
+                echo"<OPTION>$ref";
+            }
+          echo "</SELECT>";
+          echo "<input type=\"submit\" value=\"Valider\">";
+        echo"</form>";
+    echo"</fieldset>";
+
+    echo"<fieldset>";
       echo"<legend> Supprimer un article </legend>";
         echo"<form>";
           echo "<input type=\"hidden\" name=\"admin\" value=\"1\">";
@@ -78,7 +93,8 @@ include("../view/header.php");
     echo"<fieldset>";
       echo"<legend> Information sûr un utlisateur </legend>";
         echo"<form>";
-          echo "<input type=\"hidden\" name=\"infocompte\" value=\"1\">";
+          echo "<input type=\"hidden\" name=\"admin\" value=\"1\">";
+          //echo "<input type=\"hidden\" name=\"infocompte\" value=\"1\">";
           echo"<p>Mail d'un utilisateur :</p>";
           echo "<SELECT name=\"mailCompte\">";
             foreach ($listeUser as $key => $value) {
